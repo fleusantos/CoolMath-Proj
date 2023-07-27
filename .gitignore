@@ -1,0 +1,9 @@
+# Local Netlify folder
+.netlify
+
+# node module folder
+node_modules
+
+
+#production build folder
+build
