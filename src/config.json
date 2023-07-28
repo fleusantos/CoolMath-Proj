@@ -1,0 +1,34 @@
+{
+ "position": {
+  "head": {
+   "triangle": {
+    "hair": {
+     "hairPoofy": {
+      "scale": 0.8,
+      "translateX": -2,
+      "translateY": -6
+     },
+     "hairLong": {
+      "scale": 0.8,
+      "translateX": -2,
+      "translateY": -6
+     }
+    }
+   },
+   "oval": {
+    "hair": {
+     "hairPoofy": {
+      "scale": 0.8,
+      "translateX": -2,
+      "translateY": -6
+     },
+     "hairLong": {
+      "scale": 0.8,
+      "translateX": -2,
+      "translateY": -13
+     }
+    }
+   }
+  }
+ }
+}

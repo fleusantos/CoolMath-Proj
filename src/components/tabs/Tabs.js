@@ -1,6 +1,6 @@
 import List from "../list/List"
 import { useState } from "react"
-const categories = ['head', 'body', 'bottom']
+const categories = ['head', 'body', 'bottom', 'hair']
 
 const Tabs = ({ selectCatObj, selectCat }) => {
  const [categoryIndex, setCategoryIndex] = useState(0)
