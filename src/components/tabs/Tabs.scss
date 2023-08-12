@@ -1,7 +1,58 @@
 .tabs {
  display: flex;
- 
+ margin-top: 56px;
+
  .button-list {
- 
+  width: 48px;
+  display: flex;
+  flex-direction: column;
+ }
+
+ .tab {
+  position: relative;
+  width: 10px;
+  height: 70px;
+
+  img {
+   position: absolute;
+   left: 4px;
+   cursor: pointer;
+  }
+ }
+
+ .tab.active {
+  img {
+   left: -18px;
+  }
+ }
+
+ @media screen and (max-width: 799px) {
+  width: 100%;
+  margin-top: 0;
+  flex-direction: column;
+
+  .button-list {
+   flex-direction: row;
+   justify-content: flex-start;
+   width: 100%;
+  }
+
+  .tab {
+   width: 15vw;
+   height: 5vw;
+
+   img {
+    left: 0;
+    top: -3vw;
+    width: 100%;
+   }
+  }
+
+  .tab.active {
+   img {
+    left: 0;
+    top: -8vw;
+   }
+  }
  }
 }

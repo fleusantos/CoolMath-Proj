@@ -1,15 +1,97 @@
 .list {
- display: flex;
- border: solid 1px black;
- width: 200px;
+ position: relative;
+ z-index: 0;
+ width: 383px;
  height: 500px;
- 
- .item {
-  cursor: pointer;
-  max-width: 100px;
-  max-height: 100px;
+
+ .bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  img {
+   margin-left: 2px;
+  }
  }
- .item.selected {
-  border: solid 1px blue;
+
+ .content-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 29px;
+  box-sizing: border-box;
+
+  .content {
+   display: flex;
+   flex-wrap: wrap;
+
+   .item {
+    position: relative;
+    cursor: pointer;
+    aspect-ratio: 1/1;
+
+    .view {
+     overflow: hidden;
+    }
+
+    .brush {
+     position: absolute;
+     z-index: 1;
+     width: 38px;
+     right: 1%;
+    }
+
+    img {
+     width: 100%;
+    }
+   }
+
+   .item.selected {
+    // background-color: rgba($color: #ffa500, $alpha: 0.6);
+    background-image: url(../../assets/images/UI/Desktop/MainPage/NotebookPage/UIDesktop_MainPage_NotebookPage_SelectionBox.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+   }
+  }
+ }
+
+ .buttons {
+  position: absolute;
+  z-index: 100;
+  top: 79%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 73%;
+ }
+
+ @media screen and (max-width: 799px) {
+  width: 100%;
+  height: auto;
+
+  .bg {
+   img {
+    margin-left: 0;
+    width: 100%;
+   }
+  }
+
+  .content {
+   box-sizing: border-box;
+   height: 100%;
+  }
+
+  .buttons {
+   top: 50%;
+   transform: translate(-50%, -50%);
+   gap: 84vw;
+  }
  }
 }

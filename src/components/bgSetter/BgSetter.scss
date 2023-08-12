@@ -1,0 +1,26 @@
+.bg-setter {
+ position: absolute;
+ top: 15px;
+ left: 22px;
+ z-index: 100;
+ width: 123px;
+ height: 121px;
+
+ .btn {
+  position: absolute;
+  width: 27px;
+  height: 33px;
+ }
+
+ .btn.next {
+  left: -11px;
+  top: 50%;
+  transform: translate(0, -50%);
+ }
+
+ .btn.prev {
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+ }
+}

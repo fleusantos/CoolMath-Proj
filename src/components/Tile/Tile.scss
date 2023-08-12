@@ -1,0 +1,11 @@
+.color-tile {
+ width: 20px;
+ height: 20px;
+ transition: all 0.4s;
+ cursor: pointer;
+}
+.color-tile:hover {
+ position: relative;
+ z-index: 600;
+ transform: scale(1.7);
+}

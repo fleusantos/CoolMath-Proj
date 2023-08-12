@@ -6,15 +6,22 @@ const Base = ({
   object,
   width,
   height,
+  transparent,
   transform,
-  baseZindex
+  baseZindex,
+  ...props
 }) => {
   const svgRef = useRef(null)
   const [style, setStyle] = useState({})
 
   useEffect(() => {
-    let el = svgRef?.current.querySelector('path')
-    if (el) el.style.fill = color_
+    let els = svgRef?.current?.getElementsByTagName('path')
+    if (els && els.length) {
+      for (let i = 0; i < els.length; i++) {
+        els[i].style.fill = color_
+        if (!transparent) els[i].style.opacity =  1
+      }
+    }
   }, [color_, object.layers.color])
 
   useEffect(() => {
@@ -28,23 +35,25 @@ const Base = ({
   }, [width, height, JSON.stringify(transform)])
 
   return <>
-    <div className="base" style={style}>
-
-      <img className="image layer-1" src={object.layers.gray} style={{ zIndex: baseZindex + 1 }} />
-
+    <div className="base" style={{...props.style, ...style}} onClick={props.onClick}>
       {object.layers.color &&
         <object.layers.color
           className="image layer-2"
           width={width}
           height={height}
           viewBox={`0 0 ${object.original.width} ${object.original.height}`}
-          preserveAspectRatio='xMinYMin meet' style={{ zIndex: baseZindex }}
+          preserveAspectRatio='xMinYMin meet' 
+          style={{ zIndex: baseZindex }}
           ref={svgRef} />}
+
+      {object.layers.gray &&
+        <img className="image layer-1" src={object.layers.gray} style={{ zIndex: baseZindex + 1 }} />}
 
       {object.layers.highlight &&
         <img className="image layer-3" src={object.layers.highlight} style={{ zIndex: baseZindex + 2 }} />}
 
-      <img className="image layer-4" src={object.layers.outline} style={{ zIndex: baseZindex + 3 }} />
+      {object.layers.outline &&
+        <img className="image layer-4" src={object.layers.outline} style={{ zIndex: baseZindex + 3 }} />}
     </div>
   </>
 }
