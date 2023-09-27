@@ -1,39 +1,50 @@
-
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, lazy, memo, useLayoutEffect } from 'react'
 import ColorPicker from '../colorPicker/ColorPicker'
-import Base from '../base/Base'
 import { objects } from '../../utils/globals'
 import listBg from '../../assets/images/UI/Desktop/MainPage/NotebookPage/UIDesktop_MainPage_NotebookPage_PageBackground.png'
 import listBgMob from '../../assets/images/UI/Mobile/MainPage/NotebookPage/UIMobile_MainPage_NotebookPage_PageBackground.png'
 import nextArr from '../../assets/images/UI/Desktop/MainPage/Button/UIDesktop_MainPage_Button_BackgroundArrows_Right.png'
 import prevArr from '../../assets/images/UI/Desktop/MainPage/Button/UIDesktop_MainPage_Button_BackgroundArrows_Left.png'
 import brush from '../../assets/images/UI/Desktop/MainPage/NotebookPage/UIDesktop_MainPage_NotebookPage_PainBrush.png'
-import { defaultObj } from '../../utils/globals'
+import anime from 'animejs'
+import Moz from '../moz/Moz'
 import './List.scss'
+import Loader from '../loader/Loader'
+import { isIOS, detecter, isIphone } from '../../utils/functions'
 
-const noColorCategories = [
-  'fx'
-]
+const Base = lazy(() => import('../base/Base'))
+const noColorCategories = ['fx']
 
-const Obj = ({ index, config, category, categoryColor, object, selectObj, selected, changeColor, listRef, mobileMod, ...props }) => {
+const Obj = memo(({
+  index,
+  config,
+  category,
+  categoryColor,
+  object,
+  selectObj,
+  selected,
+  changeColor,
+  listRef,
+  playBtnClickSound,
+  mobileMod, ...props }) => {
   const objRef = useRef(null)
-  const [shouldPick, showPick] = useState(false)
+  const viewRef = useRef(null)
   const [style, setStyle] = useState({})
-  const [pos, setPos] = useState({ top: 0, left: 0, bottom: 0, right: 0 })
-  const [width, setWidth] = useState(objRef?.current?.clientWidth)
   const [clicked, setClicked] = useState(false)
+  const [width, setWidth] = useState(objRef?.current?.clientWidth)
+  const [pos, setPos] = useState({ top: 0, left: 0, bottom: 0, right: 0 })
+  const [showItem, setShowItem] = useState(false)
 
   useEffect(() => {
+    // Add observer
     if (objRef.current) {
       hSizeChange();
     }
-
     const resizeObserver = new ResizeObserver(hSizeChange);
     if (objRef.current) {
       resizeObserver.observe(objRef.current);
     }
 
-    // Clean up the observer when the component is unmounted or the ref changes
     return () => {
       resizeObserver.disconnect();
     };
@@ -42,10 +53,11 @@ const Obj = ({ index, config, category, categoryColor, object, selectObj, select
     if (!selected) setClicked(false)
   }, [selected])
   useEffect(() => {
+    console.log('detect current OS and browser: ', detecter())
     if (mobileMod) {
-      setStyle({ width: 'auto', height: '50%' })
+      setStyle({ width: isIOS() ? 'intrinsic' : 'auto', height: '50%' })
     } else {
-      setStyle({ width: '33.3333%', height: 'auto' })
+      setStyle({ width: '33.3333%', height: 'fit-content' })
     }
   }, [mobileMod])
   const hSizeChange = () => {
@@ -54,7 +66,6 @@ const Obj = ({ index, config, category, categoryColor, object, selectObj, select
   const hClick = () => {
     selectObj(category, object)
     setPos(getOverflowStatus(index))
-    showPick(true)
     setClicked(true)
   }
   const getOverflowStatus = (listElementIndex) => {
@@ -91,11 +102,12 @@ const Obj = ({ index, config, category, categoryColor, object, selectObj, select
     }
 
     let pos_ = { left: 'auto', right: 'auto', top: 'auto', bottom: 'auto' }
+    const offset = mobileMod ? '18vw' : '68px'
     if (listElementIndex < cols) {
-      pos_.bottom = '-25px'
+      pos_.bottom = `-${offset}`
     }
     if (listElementIndex > (cols * (rows - 1) - 1)) {
-      pos_.top = '-25px'
+      pos_.top = `-${offset}`
     }
     if ((listElementIndex + 1) % cols == 1) {
       pos_.left = '0px'
@@ -104,18 +116,22 @@ const Obj = ({ index, config, category, categoryColor, object, selectObj, select
       pos_.right = '0px'
     }
     if (pos_.bottom == 'auto' && pos_.top == 'auto') {
-      pos_.top = '-25px'
+      pos_.top = `-${offset}`
     }
     return pos_
   }
   const close = () => {
     setClicked(false)
   }
+  const setLoaded = () => {
+    setShowItem(true)
+  }
   return <>
     <div {...props} ref={objRef} style={{ ...style }}>
-      <div className='view' onClick={hClick}>
+      <div className='view' ref={viewRef} onClick={hClick}>
+        <Loader showLoader={!showItem} className='loader' />
         <Base
-          color={config.color[category][object].options[config.color[category][object].selected]}
+          color={config.color[category]?.options[config.color[category][object]?.selected]}
           width={width}
           height={width}
           object={objects[category][object]}
@@ -125,30 +141,81 @@ const Obj = ({ index, config, category, categoryColor, object, selectObj, select
             translateX: config.crop[category][object].translateX,
             translateY: config.crop[category][object].translateY
           }}
-          style={{ position: 'relative', width: '100%', top: 0, left: 0 }}
+          // animation={
+          //   category == 'top' || category == 'bottom' ?
+          //     {
+          //       init: { opacity: 0, scale: config.crop[category][object].scale + 1 },
+          //       opacity: 1,
+          //       scale: config.crop[category][object].scale,
+          //     }
+          //     :
+          //     category == 'fa' ?
+          //       {
+          //         init: { opacity: 0, translateY: config.crop[category][object].translateY - 10 },
+          //         opacity: 1,
+          //         translateY: config.crop[category][object].translateY,
+          //       }
+          //       :
+          //       category == 'fx' ?
+          //         {
+          //           init: { opacity: 0, scale: 0 },
+          //           opacity: 1,
+          //           scale: config.crop[category][object].scale,
+          //         }
+          //         :
+          //         {
+          //           init: { opacity: 0, scale: config.crop[category][object].scale - 0.1 },
+          //           opacity: 1,
+          //           scale: config.crop[category][object].scale,
+          //         }
+          // }
+          animation={
+            {
+              init: { opacity: 0, scale: config.crop[category][object].scale + 1 },
+              opacity: 1,
+              scale: config.crop[category][object].scale,
+            }
+          }
+          setLoaded={setLoaded}
+          style={{
+            display: showItem ? 'block' : 'none',
+            position: 'relative',
+            width: '100%',
+            top: 0,
+            left: 0,
+          }}
         />
       </div>
-      {selected && clicked && !noColorCategories.includes(category) && <>
+      {selected && clicked && !noColorCategories.includes(category) && !(category == 'fa' && object == 'none') && <>
         <ColorPicker
           cat={category}
           obj={object}
           close={close}
           changeColor={changeColor}
           config={config}
+          playBtnClickSound={playBtnClickSound}
           style={{ ...pos }} />
-        <img className='brush' src={brush} style={pos.top == 'auto' ? {top: '3%'} : {bottom: '3%'}} />
+        {/* <img className='brush' src={brush} style={pos.top == 'auto' ? { top: '3%' } : { bottom: '3%' }} /> */}
       </>}
     </div>
   </>
-}
+})
 
 
 let pageSize = 9
 let gtotalPages = 0
 
-const List = ({ config, selectCatObj, category, categoryColor, changeColor, mobileMod }) => {
+const List = ({
+  config,
+  selectCatObj,
+  category,
+  categoryColor,
+  changeColor,
+  mobileMod,
+  playBtnClickSound,
+  setListBgLoaded }) => {
   const listRef = useRef(null)
-  const [selectedObj, setSelectedObj] = useState(defaultObj[category])
+  const [selectedObj, setSelectedObj] = useState(config.defaultObj[category])
   const [pageIndex, setPageIndex] = useState(0)
   const [render, setRender] = useState(1)
 
@@ -160,16 +227,18 @@ const List = ({ config, selectCatObj, category, categoryColor, changeColor, mobi
     }
     setRender(prev => prev + 1)
   }, [mobileMod])
-  useEffect(() => {
+  useLayoutEffect(() => {
     setPageIndex(0)
   }, [category])
   const hPrev = () => {
     if (pageIndex - 1 < 0) return
     setPageIndex(prev => prev - 1)
+    playBtnClickSound()
   }
   const hNext = () => {
     if (pageIndex + 1 == gtotalPages) return
     setPageIndex(prev => prev + 1)
+    playBtnClickSound()
   }
   function paginateObjectProperties(obj, pageSize) {
     var propertyNames = Object.keys(obj);
@@ -197,15 +266,22 @@ const List = ({ config, selectCatObj, category, categoryColor, changeColor, mobi
     selectCatObj(category, object)
     setSelectedObj(object)
   }
-
+  const howmany = useRef(0)
+  const setLoaded = () => {
+    howmany.current++
+    if (howmany.current == 1) {
+      setListBgLoaded()
+      howmany.current = 0
+    }
+  }
   return <>
     <div className="list" >
       <div className='bg'>
-        <img src={mobileMod ? listBgMob : listBg} />
+        <Moz src={mobileMod ? listBgMob : listBg} setLoaded={setLoaded} />
       </div>
       <div className='content-container' ref={listRef}>
-        <div className='content' >
-          {render && Object.keys(paginateObjectProperties(objects[category], pageSize)[pageIndex] || {})?.map((object, index) =>
+        <div className='content' style={{ height: isIphone() ? '100%' : 'auto' }}>
+          {Object.keys(paginateObjectProperties(objects[category], pageSize)[pageIndex] || {})?.map((object, index) =>
             <Obj
               index={index}
               config={config}
@@ -218,6 +294,7 @@ const List = ({ config, selectCatObj, category, categoryColor, changeColor, mobi
               changeColor={changeColor}
               listRef={listRef}
               mobileMod={mobileMod}
+              playBtnClickSound={playBtnClickSound}
               className={`item ${selectedObj == object ? 'selected' : ''}`}
             />
           )}
@@ -225,11 +302,13 @@ const List = ({ config, selectCatObj, category, categoryColor, changeColor, mobi
       </div>
       {gtotalPages > 1 &&
         <div className='buttons'>
-          <img onClick={hPrev} src={prevArr} />
-          <img onClick={hNext} src={nextArr} />
+          {pageIndex > 0 &&
+            <img className='btn prev' onClick={hPrev} src={prevArr} />}
+          {pageIndex < gtotalPages - 1 &&
+            <img className='btn next' onClick={hNext} src={nextArr} />}
         </div>}
     </div>
   </>
 }
 
-export default List
+export default memo(List)

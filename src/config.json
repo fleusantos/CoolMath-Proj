@@ -1,4 +1,13 @@
 {
+ "defaultObj": {
+  "head": "oval",
+  "hair": "pigtail",
+  "fa": "none",
+  "fx": "fxHappy",
+  "top": "topCoat",
+  "bottom": "basicShorts",
+  "sh": "shSkate"
+ },
  "position": {
   "head": {
    "triangle": {
@@ -9,37 +18,37 @@
      "hairPoofy": {
       "scale": 1,
       "translateX": -0.8,
-      "translateY": 2
+      "translateY": 4
      },
      "hairLong": {
       "scale": 1,
       "translateX": -0.8,
-      "translateY": 2
+      "translateY": 3
      },
      "bang": {
       "scale": 1,
       "translateX": -0.8,
-      "translateY": 2
+      "translateY": 2.5
      },
      "mohawk": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": 2
+      "translateX": -2.8,
+      "translateY": 3
      },
      "pigtail": {
       "scale": 1,
-      "translateX": -0.8,
+      "translateX": -1,
       "translateY": 2
      },
      "sidePony": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": 2
+      "translateX": 0.2,
+      "translateY": 2.5
      },
      "spiky": {
       "scale": 1,
       "translateX": -0.8,
-      "translateY": 2
+      "translateY": 2.5
      },
      "wavy": {
       "scale": 1,
@@ -55,107 +64,117 @@
      },
      "faMask": {
       "scale": 1,
-      "translateX": -0.5,
+      "translateX": -1,
       "translateY": 2
      },
      "faGlass": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": -1.2,
+      "translateY": 2.2
      },
      "faClown": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": -0.8,
+      "translateY": 2.8
      },
      "faSqGlass": {
       "scale": 1,
-      "translateX": -0.5,
+      "translateX": -1,
       "translateY": 2
      },
      "faStGlass": {
       "scale": 1,
-      "translateX": -0.5,
+      "translateX": -0.8,
       "translateY": 2
      },
      "faSwGlass": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": -1,
+      "translateY": 2.5
      },
      "htaChef": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 3
+      "translateX": 0,
+      "translateY": 2
      },
      "htaFancy": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 3
+      "translateX": 2,
+      "translateY": 2
      },
      "htaBase": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 3
+      "translateX": 1,
+      "translateY": 6
      },
      "htaBean": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 3
+      "translateX": 0,
+      "translateY": 5
      },
      "htaBeret": {
       "scale": 1,
       "translateX": -2,
-      "translateY": 3
+      "translateY": 3.5
      },
      "htaPencil": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 3
+      "translateX": 6,
+      "translateY": 2
      }
     },
     "fx": {
      "fxAngry": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": -1,
+      "translateY": 3
      },
      "fxConcerned": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": -1,
+      "translateY": 3
      },
      "fxExcited": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": -1.2,
+      "translateY": 2.2
      },
      "fxHappy": {
       "scale": 1,
-      "translateX": -0.5,
+      "translateX": -0.8,
+      "translateY": 2
+     },
+     "fxNaughty": {
+      "scale": 1,
+      "translateX": -1,
+      "translateY": 2.5
+     },
+     "fxNeuitral": {
+      "scale": 1,
+      "translateX": -0.8,
       "translateY": 2
      },
      "fxPlayful": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": -1.2,
+      "translateY": 2.5
      },
      "fxSurprise": {
       "scale": 1,
-      "translateX": -0.5,
+      "translateX": -1,
       "translateY": 2
      }
     }
    },
    "oval": {
     "scale": 1,
-    "translateX": 1,
-    "translateY": 1.2,
+    "translateX": 0.6,
+    "translateY": 0.8,
     "hair": {
      "hairPoofy": {
       "scale": 1,
       "translateX": -1,
-      "translateY": -3.5
+      "translateY": -2
      },
      "hairLong": {
       "scale": 1,
@@ -164,28 +183,28 @@
      },
      "bang": {
       "scale": 1,
-      "translateX": -1,
+      "translateX": 0,
       "translateY": -3.5
      },
      "mohawk": {
       "scale": 1,
-      "translateX": -1,
-      "translateY": -3.5
+      "translateX": -3,
+      "translateY": -5.5
      },
      "pigtail": {
       "scale": 1,
-      "translateX": -1,
+      "translateX": -0.8,
       "translateY": -3.5
      },
      "sidePony": {
       "scale": 1,
-      "translateX": -1,
-      "translateY": -3.5
+      "translateX": -1.5,
+      "translateY": -3.8
      },
      "spiky": {
       "scale": 1,
-      "translateX": -1,
-      "translateY": -3.5
+      "translateX": -0.8,
+      "translateY": -4
      },
      "wavy": {
       "scale": 1,
@@ -206,74 +225,74 @@
      },
      "faGlass": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": -2.5
+      "translateX": -1,
+      "translateY": -2.3
      },
      "faClown": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": -2.5
+      "translateX": -1,
+      "translateY": -1.8
      },
      "faSqGlass": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": -2.5
+      "translateX": -0.6,
+      "translateY": -2.8
      },
      "faStGlass": {
       "scale": 1,
-      "translateX": -0.8,
+      "translateX": -0.3,
       "translateY": -2.5
      },
      "faSwGlass": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": -2.5
+      "translateX": -1.5,
+      "translateY": -2
      },
      "htaChef": {
       "scale": 1,
-      "translateX": -1,
+      "translateX": 0.5,
       "translateY": -3.5
      },
      "htaFancy": {
       "scale": 1,
-      "translateX": -1,
-      "translateY": -3.5
+      "translateX": 2,
+      "translateY": -3
      },
      "htaBase": {
       "scale": 1,
-      "translateX": -1,
-      "translateY": -3.5
+      "translateX": 0.5,
+      "translateY": -0.5
      },
      "htaBean": {
       "scale": 1,
-      "translateX": -1,
-      "translateY": -3.5
+      "translateX": 0,
+      "translateY": 0.5
      },
      "htaBeret": {
       "scale": 1,
-      "translateX": -1,
-      "translateY": -3.5
+      "translateX": -1.5,
+      "translateY": -1.5
      },
      "htaPencil": {
       "scale": 1,
-      "translateX": -1,
-      "translateY": -3.5
+      "translateX": 4,
+      "translateY": -1.5
      }
     },
     "fx": {
      "fxAngry": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": -2.5
+      "translateX": -1,
+      "translateY": -1.6
      },
      "fxConcerned": {
       "scale": 1,
       "translateX": -0.8,
-      "translateY": -2.5
+      "translateY": -2.3
      },
      "fxExcited": {
       "scale": 1,
-      "translateX": -0.8,
+      "translateX": -1,
       "translateY": -2.5
      },
      "fxHappy": {
@@ -281,10 +300,20 @@
       "translateX": -0.8,
       "translateY": -2.5
      },
-     "fxPlayful": {
+     "fxNaughty": {
       "scale": 1,
       "translateX": -0.8,
+      "translateY": -2
+     },
+     "fxNeuitral": {
+      "scale": 1,
+      "translateX": -1,
       "translateY": -2.5
+     },
+     "fxPlayful": {
+      "scale": 1,
+      "translateX": -1.2,
+      "translateY": -2
      },
      "fxSurprise": {
       "scale": 1,
@@ -296,47 +325,47 @@
    "bean": {
     "scale": 1,
     "translateX": 0,
-    "translateY": 4,
+    "translateY": 3,
     "hair": {
      "hairPoofy": {
       "scale": 1,
       "translateX": 0,
-      "translateY": -3
+      "translateY": 0
      },
      "hairLong": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": -3
+      "translateX": 0.5,
+      "translateY": -2
      },
      "bang": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": -3
+      "translateX": 0.5,
+      "translateY": -2
      },
      "mohawk": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": -3
+      "translateX": 1,
+      "translateY": -5
      },
      "pigtail": {
       "scale": 1,
       "translateX": 0,
-      "translateY": -3
+      "translateY": -2
      },
      "sidePony": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": -3
+      "translateX": 0.2,
+      "translateY": -1.5
      },
      "spiky": {
       "scale": 1,
       "translateX": 0,
-      "translateY": -3
+      "translateY": -2
      },
      "wavy": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": -3
+      "translateX": -1,
+      "translateY": -2
      }
     },
     "fa": {
@@ -352,13 +381,13 @@
      },
      "faGlass": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": -1
+      "translateX": 0.1,
+      "translateY": 0
      },
      "faClown": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": -1
+      "translateX": 0.8,
+      "translateY": 0.5
      },
      "faSqGlass": {
       "scale": 1,
@@ -367,87 +396,97 @@
      },
      "faStGlass": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": -1
+      "translateX": 0.7,
+      "translateY": -0.3
      },
      "faSwGlass": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": -1
+      "translateX": 0,
+      "translateY": 0
      },
      "htaChef": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 0
+      "translateX": 1,
+      "translateY": -1
      },
      "htaFancy": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 0
+      "translateX": 1.5,
+      "translateY": -2.5
      },
      "htaBase": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 0
+      "translateX": 0.5,
+      "translateY": 2.5
      },
      "htaBean": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 0
+      "translateX": 1.5,
+      "translateY": -0.5
      },
      "htaBeret": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 0
+      "translateX": 2,
+      "translateY": -1
      },
      "htaPencil": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 0
+      "translateX": 5,
+      "translateY": -1.5
      }
     },
     "fx": {
      "fxAngry": {
       "scale": 1,
       "translateX": 0.5,
-      "translateY": -1
+      "translateY": 0
      },
      "fxConcerned": {
       "scale": 1,
       "translateX": 0.5,
-      "translateY": -1
+      "translateY": 0
      },
      "fxExcited": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": -1
+      "translateX": 0.2,
+      "translateY": 0
      },
      "fxHappy": {
       "scale": 1,
       "translateX": 0.5,
-      "translateY": -1
+      "translateY": -0.8
+     },
+     "fxNaughty": {
+      "scale": 1,
+      "translateX": 0.2,
+      "translateY": -0.2
+     },
+     "fxNeuitral": {
+      "scale": 1,
+      "translateX": 0.2,
+      "translateY": -0.8
      },
      "fxPlayful": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": -1
+      "translateX": 0,
+      "translateY": -0.2
      },
      "fxSurprise": {
       "scale": 1,
       "translateX": 0.5,
-      "translateY": -1
+      "translateY": -0.5
      }
     }
    },
    "circular": {
     "scale": 1,
-    "translateX": 2.5,
-    "translateY": 0,
+    "translateX": 2.2,
+    "translateY": -0.5,
     "hair": {
      "hairPoofy": {
       "scale": 1,
-      "translateX": 1,
-      "translateY": -2
+      "translateX": 0,
+      "translateY": 0
      },
      "hairLong": {
       "scale": 1,
@@ -456,7 +495,7 @@
      },
      "bang": {
       "scale": 1,
-      "translateX": 1,
+      "translateX": 1.5,
       "translateY": -2
      },
      "mohawk": {
@@ -466,12 +505,12 @@
      },
      "pigtail": {
       "scale": 1,
-      "translateX": 1,
-      "translateY": -2
+      "translateX": 0,
+      "translateY": -2.5
      },
      "sidePony": {
       "scale": 1,
-      "translateX": 1,
+      "translateX": 0,
       "translateY": -2
      },
      "spiky": {
@@ -493,142 +532,152 @@
      },
      "faMask": {
       "scale": 1,
-      "translateX": 2,
-      "translateY": -1
+      "translateX": 0.5,
+      "translateY": -2
      },
      "faGlass": {
       "scale": 1,
-      "translateX": 2,
-      "translateY": -1
+      "translateX": 0,
+      "translateY": -1.5
      },
      "faClown": {
       "scale": 1,
-      "translateX": 2,
+      "translateX": 0.5,
       "translateY": -1
      },
      "faSqGlass": {
       "scale": 1,
-      "translateX": 2,
-      "translateY": -1
+      "translateX": 0.6,
+      "translateY": -2
      },
      "faStGlass": {
       "scale": 1,
-      "translateX": 2,
+      "translateX": 1,
       "translateY": -1
      },
      "faSwGlass": {
       "scale": 1,
-      "translateX": 2,
+      "translateX": 0,
       "translateY": -1
      },
      "htaChef": {
       "scale": 1,
-      "translateX": 0,
+      "translateX": 2,
       "translateY": -1
      },
      "htaFancy": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": -1
+      "translateX": 2.5,
+      "translateY": -3
      },
      "htaBase": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": -1
+      "translateX": 1.5,
+      "translateY": 0
      },
      "htaBean": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": -1
+      "translateX": 1.5,
+      "translateY": 1
      },
      "htaBeret": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": -1
+      "translateX": 1.5,
+      "translateY": -2
      },
      "htaPencil": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": -1
+      "translateX": 5,
+      "translateY": -2
      }
     },
     "fx": {
      "fxAngry": {
       "scale": 1,
-      "translateX": 2,
+      "translateX": 0.5,
       "translateY": -1
      },
      "fxConcerned": {
       "scale": 1,
-      "translateX": 2,
-      "translateY": -1
+      "translateX": 0.5,
+      "translateY": -1.2
      },
      "fxExcited": {
       "scale": 1,
-      "translateX": 2,
+      "translateX": 0,
       "translateY": -1
      },
      "fxHappy": {
       "scale": 1,
-      "translateX": 2,
-      "translateY": -1
+      "translateX": 0.5,
+      "translateY": -2
+     },
+     "fxNaughty": {
+      "scale": 1,
+      "translateX": 0.2,
+      "translateY": -1.5
+     },
+     "fxNeuitral": {
+      "scale": 1,
+      "translateX": 0.2,
+      "translateY": -2
      },
      "fxPlayful": {
       "scale": 1,
-      "translateX": 2,
-      "translateY": -1
+      "translateX": 0,
+      "translateY": -1.4
      },
      "fxSurprise": {
       "scale": 1,
-      "translateX": 2,
-      "translateY": -1
+      "translateX": 0.5,
+      "translateY": -1.5
      }
     }
    },
    "crazy": {
     "scale": 1,
-    "translateX": 0.5,
-    "translateY": 3,
+    "translateX": -0.2,
+    "translateY": 1,
     "hair": {
      "hairPoofy": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": 2
+      "translateX": 0.2,
+      "translateY": 1.5
      },
      "hairLong": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": 2
+      "translateX": 1.2,
+      "translateY": 0
      },
      "bang": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": 2
+      "translateX": 1.8,
+      "translateY": 0
      },
      "mohawk": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": 2
+      "translateX": 0.2,
+      "translateY": 0
      },
      "pigtail": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": 2
+      "translateX": 1.2,
+      "translateY": -0.2
      },
      "sidePony": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": 2
+      "translateX": 1,
+      "translateY": -0.5
      },
      "spiky": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": 2
+      "translateX": 1.2,
+      "translateY": -1
      },
      "wavy": {
       "scale": 1,
-      "translateX": -0.8,
-      "translateY": 2
+      "translateX": 1.6,
+      "translateY": 1
      }
     },
     "fa": {
@@ -639,107 +688,117 @@
      },
      "faMask": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": 1,
+      "translateY": 0
      },
      "faGlass": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": 0.8,
+      "translateY": 0.2
      },
      "faClown": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": 0.8,
+      "translateY": 1
      },
      "faSqGlass": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": 1,
+      "translateY": -0.1
      },
      "faStGlass": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": 1.5,
+      "translateY": 0
      },
      "faSwGlass": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": 0.5,
+      "translateY": 0.5
      },
      "htaChef": {
       "scale": 1,
-      "translateX": 0,
+      "translateX": 2,
       "translateY": 2.5
      },
      "htaFancy": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 2.5
+      "translateX": 5,
+      "translateY": 1.5
      },
      "htaBase": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 2.5
+      "translateX": 3,
+      "translateY": 1.5
      },
      "htaBean": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 2.5
+      "translateX": 4,
+      "translateY": 2
      },
      "htaBeret": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 2.5
+      "translateX": 1,
+      "translateY": -0.5
      },
      "htaPencil": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 2.5
+      "translateX": 6,
+      "translateY": 3
      }
     },
     "fx": {
      "fxAngry": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": 1.5,
+      "translateY": 0.8
      },
      "fxConcerned": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": 1.5,
+      "translateY": 1
      },
      "fxExcited": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": 0.5,
+      "translateY": 0.5
      },
      "fxHappy": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": 0.5,
+      "translateY": 0.5
+     },
+     "fxNaughty": {
+      "scale": 1,
+      "translateX": 0.8,
+      "translateY": 0.3
+     },
+     "fxNeuitral": {
+      "scale": 1,
+      "translateX": 0.8,
+      "translateY": 0
      },
      "fxPlayful": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": 0.5,
+      "translateY": 0.6
      },
      "fxSurprise": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": 2
+      "translateX": 1,
+      "translateY": 0
      }
     }
    },
    "diamond": {
     "scale": 1,
-    "translateX": 0.5,
+    "translateX": 1,
     "translateY": 0,
     "hair": {
      "hairPoofy": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 0
+      "translateX": -1,
+      "translateY": 2
      },
      "hairLong": {
       "scale": 1,
@@ -748,8 +807,8 @@
      },
      "bang": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 0
+      "translateX": 0.4,
+      "translateY": 0.4
      },
      "mohawk": {
       "scale": 1,
@@ -758,8 +817,8 @@
      },
      "pigtail": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 0
+      "translateX": 1,
+      "translateY": -1
      },
      "sidePony": {
       "scale": 1,
@@ -768,8 +827,8 @@
      },
      "spiky": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 0
+      "translateX": 0.5,
+      "translateY": -0.2
      },
      "wavy": {
       "scale": 1,
@@ -785,142 +844,152 @@
      },
      "faMask": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": 0.5
+      "translateX": 0.8,
+      "translateY": -0.5
      },
      "faGlass": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": 0.5
+      "translateX": 0,
+      "translateY": -0.5
      },
      "faClown": {
       "scale": 1,
       "translateX": 0.5,
-      "translateY": 0.5
+      "translateY": 0
      },
      "faSqGlass": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": 0.5
+      "translateX": 0.3,
+      "translateY": -1
      },
      "faStGlass": {
       "scale": 1,
       "translateX": 0.5,
-      "translateY": 0.5
+      "translateY": -0.5
      },
      "faSwGlass": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": 0.5
+      "translateX": -0.5,
+      "translateY": 0
      },
      "htaChef": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 1
+      "translateX": 2.5,
+      "translateY": 1.5
      },
      "htaFancy": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 1
+      "translateX": 4,
+      "translateY": -1
      },
      "htaBase": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 1
+      "translateX": 2.5,
+      "translateY": 2
      },
      "htaBean": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 1
+      "translateX": 1,
+      "translateY": 3
      },
      "htaBeret": {
       "scale": 1,
-      "translateX": -2,
+      "translateX": 1,
       "translateY": 1
      },
      "htaPencil": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 1
+      "translateX": 5,
+      "translateY": 3
      }
     },
     "fx": {
      "fxAngry": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": 0.5
+      "translateX": 0,
+      "translateY": 0
      },
      "fxConcerned": {
       "scale": 1,
       "translateX": 0.5,
-      "translateY": 0.5
+      "translateY": -0.5
      },
      "fxExcited": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": 0.5
+      "translateX": 0,
+      "translateY": -0.5
      },
      "fxHappy": {
       "scale": 1,
       "translateX": 0.5,
-      "translateY": 0.5
+      "translateY": -0.5
+     },
+     "fxNaughty": {
+      "scale": 1,
+      "translateX": 0.3,
+      "translateY": -0.2
+     },
+     "fxNeuitral": {
+      "scale": 1,
+      "translateX": 0,
+      "translateY": -1
      },
      "fxPlayful": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": 0.5
+      "translateX": 0.3,
+      "translateY": -0.5
      },
      "fxSurprise": {
       "scale": 1,
-      "translateX": 0.5,
-      "translateY": 0.5
+      "translateX": 0,
+      "translateY": -0.8
      }
     }
    },
    "natural": {
     "scale": 1,
-    "translateX": 0,
+    "translateX": 1,
     "translateY": 0.2,
     "hair": {
      "hairPoofy": {
       "scale": 1,
       "translateX": -0.5,
-      "translateY": -2.5
+      "translateY": 0.5
      },
      "hairLong": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": -2.5
+      "translateX": 0.5,
+      "translateY": -1.5
      },
      "bang": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": -2.5
+      "translateX": 0.5,
+      "translateY": -1.5
      },
      "mohawk": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": -2.5
+      "translateX": -1.5,
+      "translateY": -3.5
      },
      "pigtail": {
       "scale": 1,
-      "translateX": -0.5,
+      "translateX": 0.5,
       "translateY": -2.5
      },
      "sidePony": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": -2.5
+      "translateX": 0.8,
+      "translateY": -2
      },
      "spiky": {
       "scale": 1,
-      "translateX": -0.5,
+      "translateX": 0.5,
       "translateY": -2.5
      },
      "wavy": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": -2.5
+      "translateX": 0.5,
+      "translateY": 0
      }
     },
     "fa": {
@@ -931,111 +1000,121 @@
      },
      "faMask": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": -1.5
+      "translateX": 0.5,
+      "translateY": -2
      },
      "faGlass": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": -1.5
+      "translateX": 0.3,
+      "translateY": -1
      },
      "faClown": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": -1.5
+      "translateX": 0.5,
+      "translateY": -0.5
      },
      "faSqGlass": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": -1.5
+      "translateX": 0.5,
+      "translateY": -2
      },
      "faStGlass": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": -1.5
+      "translateX": 1,
+      "translateY": -0.5
      },
      "faSwGlass": {
       "scale": 1,
-      "translateX": -0.5,
+      "translateX": 0.5,
       "translateY": -1.5
      },
      "htaChef": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 0
+      "translateX": 1,
+      "translateY": -1
      },
      "htaFancy": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 0
+      "translateX": 3,
+      "translateY": -3
      },
      "htaBase": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 0
+      "translateX": 1.5,
+      "translateY": 0.5
      },
      "htaBean": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 0
+      "translateX": 2.5,
+      "translateY": -0.5
      },
      "htaBeret": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 0
+      "translateX": 1,
+      "translateY": -2
      },
      "htaPencil": {
       "scale": 1,
-      "translateX": -2,
-      "translateY": 0
+      "translateX": 6.5,
+      "translateY": 2
      }
     },
     "fx": {
      "fxAngry": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": -1.5
+      "translateX": 0.5,
+      "translateY": -0.8
      },
      "fxConcerned": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": -1.5
+      "translateX": 1,
+      "translateY": -0.8
      },
      "fxExcited": {
       "scale": 1,
-      "translateX": -0.5,
+      "translateX": 0.5,
       "translateY": -1.5
      },
      "fxHappy": {
       "scale": 1,
-      "translateX": -0.5,
+      "translateX": 0.5,
+      "translateY": -2
+     },
+     "fxNaughty": {
+      "scale": 1,
+      "translateX": 0.5,
+      "translateY": -1
+     },
+     "fxNeuitral": {
+      "scale": 1,
+      "translateX": 0.5,
       "translateY": -1.5
      },
      "fxPlayful": {
       "scale": 1,
       "translateX": -0.5,
-      "translateY": 0
+      "translateY": -1
      },
      "fxSurprise": {
       "scale": 1,
-      "translateX": -0.5,
-      "translateY": -1.5
+      "translateX": 0.3,
+      "translateY": -1.3
      }
     }
    },
    "star": {
     "scale": 1,
-    "translateX": 2,
-    "translateY": 3,
+    "translateX": 1.8,
+    "translateY": 2.5,
     "hair": {
      "hairPoofy": {
       "scale": 1,
       "translateX": 1.5,
-      "translateY": 0
+      "translateY": 2.2
      },
      "hairLong": {
       "scale": 1,
-      "translateX": 1.5,
+      "translateX": 2,
       "translateY": 0
      },
      "bang": {
@@ -1045,12 +1124,12 @@
      },
      "mohawk": {
       "scale": 1,
-      "translateX": 1.5,
+      "translateX": 0.5,
       "translateY": 0
      },
      "pigtail": {
       "scale": 1,
-      "translateX": 1.5,
+      "translateX": 2,
       "translateY": 0
      },
      "sidePony": {
@@ -1061,12 +1140,12 @@
      "spiky": {
       "scale": 1,
       "translateX": 1.5,
-      "translateY": 0
+      "translateY": -1
      },
      "wavy": {
       "scale": 1,
       "translateX": 1.5,
-      "translateY": 0
+      "translateY": 0.5
      }
     },
     "fa": {
@@ -1077,12 +1156,12 @@
      },
      "faMask": {
       "scale": 1,
-      "translateX": 1,
-      "translateY": 1
+      "translateX": 1.3,
+      "translateY": -0.1
      },
      "faGlass": {
       "scale": 1,
-      "translateX": 1,
+      "translateX": 1.2,
       "translateY": 1
      },
      "faClown": {
@@ -1093,7 +1172,7 @@
      "faSqGlass": {
       "scale": 1,
       "translateX": 1,
-      "translateY": 1
+      "translateY": 0.6
      },
      "faStGlass": {
       "scale": 1,
@@ -1107,65 +1186,75 @@
      },
      "htaChef": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 3
+      "translateX": 1,
+      "translateY": 0
      },
      "htaFancy": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 3
+      "translateX": 6,
+      "translateY": -1
      },
      "htaBase": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 3
+      "translateX": 4,
+      "translateY": 1
      },
      "htaBean": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 3
+      "translateX": 4.5,
+      "translateY": 1.5
      },
      "htaBeret": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 3
+      "translateX": 2,
+      "translateY": -1
      },
      "htaPencil": {
       "scale": 1,
-      "translateX": 0,
-      "translateY": 3
+      "translateX": 8,
+      "translateY": 1.5
      }
     },
     "fx": {
      "fxAngry": {
       "scale": 1,
-      "translateX": 1,
+      "translateX": 1.2,
       "translateY": 1
      },
      "fxConcerned": {
       "scale": 1,
-      "translateX": 1,
-      "translateY": 1
+      "translateX": 1.4,
+      "translateY": 1.1
      },
      "fxExcited": {
       "scale": 1,
       "translateX": 1,
-      "translateY": 1
+      "translateY": 0.7
      },
      "fxHappy": {
       "scale": 1,
       "translateX": 1,
+      "translateY": 0
+     },
+     "fxNaughty": {
+      "scale": 1,
+      "translateX": 1.5,
       "translateY": 1
+     },
+     "fxNeuitral": {
+      "scale": 1,
+      "translateX": 1.5,
+      "translateY": 0.5
      },
      "fxPlayful": {
       "scale": 1,
-      "translateX": 1,
+      "translateX": 0.8,
       "translateY": 1
      },
      "fxSurprise": {
       "scale": 1,
-      "translateX": 1,
-      "translateY": 1
+      "translateX": 1.6,
+      "translateY": 0.5
      }
     }
    }
@@ -1173,1005 +1262,225 @@
  },
  "color": {
   "head": {
+   "options": [
+    "#FDE4CB",
+    "#FACC9F",
+    "#F0B35D",
+    "#D6884D",
+    "#C27D33",
+    "#9F4C24",
+    "#F2AC9B",
+    "#F3F395",
+    "#79EB99",
+    "#9EEAF2",
+    "#BDAFF9",
+    "#F1A1E7"
+   ],
    "triangle": {
-    "selected": 0,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 3
    },
    "oval": {
-    "selected": 2,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 0
    },
    "bean": {
-    "selected": 2,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 7
    },
    "circular": {
-    "selected": 2,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 11
    },
    "crazy": {
-    "selected": 2,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 1
    },
    "diamond": {
-    "selected": 2,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 1
    },
    "natural": {
-    "selected": 2,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 9
    },
    "star": {
-    "selected": 2,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 6
    }
   },
   "hair": {
+   "options": [
+    "#FCEACC",
+    "#F3B563",
+    "#E39164",
+    "#C26300",
+    "#9F6231",
+    "#826F5F",
+    "#F87620",
+    "#B7C951",
+    "#00B466",
+    "#57BAE5",
+    "#E8DAFD",
+    "#EE76B7"
+   ],
    "hairPoofy": {
-    "selected": 2,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 2
    },
    "hairLong": {
-    "selected": 1,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 1
    },
    "bang": {
-    "selected": 1,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 11
    },
    "mohawk": {
-    "selected": 1,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 8
    },
    "pigtail": {
-    "selected": 1,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 9
    },
    "sidePony": {
-    "selected": 1,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 3
    },
    "spiky": {
-    "selected": 1,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 5
    },
    "wavy": {
-    "selected": 1,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 8
    }
   },
   "fa": {
-   "none": {
-    "selected": 2,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
-   },
+   "options": [
+    "#FF230D",
+    "#FDF7D7",
+    "#B6FFA9",
+    "#3DF4FB",
+    "#8E8EFF",
+    "#FF7EFD"
+   ],
    "faMask": {
-    "selected": 2,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 4
    },
    "faGlass": {
-    "selected": 3,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 0
    },
    "faClown": {
-    "selected": 3,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 2
    },
    "faSqGlass": {
-    "selected": 3,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 5
    },
    "faStGlass": {
-    "selected": 3,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 2
    },
    "faSwGlass": {
-    "selected": 3,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 3
    },
    "htaChef": {
-    "selected": 3,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 1
    },
    "htaFancy": {
-    "selected": 8,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 3
    },
    "htaBase": {
-    "selected": 3,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 2
    },
    "htaBean": {
-    "selected": 3,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 0
    },
    "htaBeret": {
-    "selected": 3,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 4
    },
    "htaPencil": {
-    "selected": 3,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
-   }
-  },
-  "fx": {
-   "fxAngry": {
-    "selected": 0,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
-   },
-   "fxConcerned": {
-    "selected": 0,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
-   },
-   "fxExcited": {
-    "selected": 0,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
-   },
-   "fxHappy": {
-    "selected": 0,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
-   },
-   "fxPlayful": {
-    "selected": 0,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
-   },
-   "fxSurprise": {
-    "selected": 0,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
-   }
-  },
-  "body": {
-   "body": {
-    "selected": 0,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 0
    }
   },
   "top": {
+   "options": [
+    "#BC6B65",
+    "#F8CB5C",
+    "#BAFDD6",
+    "#7BADE8",
+    "#C5A2E6",
+    "#FEDDF4"
+   ],
    "topCoat": {
-    "selected": 11,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 0
    },
    "topVest": {
-    "selected": 8,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 2
    },
    "topBeast": {
-    "selected": 8,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 0
    },
    "topCol": {
-    "selected": 8,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 3
    },
    "topHoodie": {
-    "selected": 8,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 5
    },
    "topKnit": {
-    "selected": 8,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 4
    },
    "topPlain": {
-    "selected": 8,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 1
    }
   },
   "bottom": {
+   "options": [
+    "#EB9536",
+    "#9CB356",
+    "#60A08D",
+    "#8CADFC",
+    "#E0C7F8",
+    "#C52773"
+   ],
    "longPants": {
-    "selected": 8,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 0
    },
    "longSkirt": {
-    "selected": 10,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 5
    },
    "basicShorts": {
-    "selected": 10,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 2
    },
    "puffyShorts": {
-    "selected": 10,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 1
    },
    "skirt": {
-    "selected": 10,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 2
    },
    "sweatPants": {
-    "selected": 10,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 3
    },
    "wavySkirt": {
-    "selected": 10,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 4
    }
   },
   "sh": {
+   "options": [
+    "#FA4030",
+    "#AE6700",
+    "#FCF395",
+    "#B4EA35",
+    "#18984A",
+    "#7DBAE0"
+   ],
    "shBoot": {
-    "selected": 0,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 1
    },
    "shSkate": {
-    "selected": 10,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 2
    },
    "shClown": {
-    "selected": 10,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 0
    },
    "shHeels": {
-    "selected": 10,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 5
    },
    "shPfBoots": {
-    "selected": 10,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 4
    },
    "shShort": {
-    "selected": 10,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 1
    },
    "shSlipper": {
-    "selected": 10,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 4
    },
    "shSneaker": {
-    "selected": 10,
-    "options": [
-     "#1f0",
-     "#5af",
-     "#a5f",
-     "#ddf",
-     "#2ee",
-     "#6c7",
-     "#893",
-     "#f85",
-     "#f5d",
-     "#f1a",
-     "#f06",
-     "#fe2"
-    ]
+    "selected": 3
    }
   }
  },
@@ -2215,7 +1524,7 @@
    "wavy": {
     "scale": 1.5,
     "translateX": -5,
-    "translateY": 22
+    "translateY": 10
    }
   },
   "fa": {
@@ -2306,6 +1615,16 @@
     "translateX": -8,
     "translateY": 15
    },
+   "fxNaughty": {
+    "scale": 4,
+    "translateX": -8,
+    "translateY": 15
+   },
+   "fxNeuitral": {
+    "scale": 4,
+    "translateX": -8,
+    "translateY": 15
+   },
    "fxPlayful": {
     "scale": 4,
     "translateX": -8,
@@ -2339,7 +1658,7 @@
     "translateY": 15
    },
    "crazy": {
-    "scale": 2.0,
+    "scale": 2,
     "translateX": -6,
     "translateY": 14
    },
@@ -2414,7 +1733,7 @@
    },
    "puffyShorts": {
     "scale": 2.5,
-    "translateX": -7,
+    "translateX": -6,
     "translateY": -22
    },
    "skirt": {
@@ -2429,7 +1748,7 @@
    },
    "wavySkirt": {
     "scale": 2.5,
-    "translateX": -7,
+    "translateX": -5,
     "translateY": -22
    }
   },

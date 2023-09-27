@@ -1,0 +1,18 @@
+.detector {
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background-color: black;
+ margin: 0;
+ z-index: 1001;
+
+ .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+ }
+}

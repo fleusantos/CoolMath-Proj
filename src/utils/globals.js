@@ -6,6 +6,8 @@ import angry from '../assets/images/Character/FacialExpression/FacialExpression_
 import concerned from '../assets/images/Character/FacialExpression/FacialExpression_Concerned.png'
 import excited from '../assets/images/Character/FacialExpression/FacialExpression_Excited.png'
 import happy from '../assets/images/Character/FacialExpression/FacialExpression_Happy.png'
+import naughty from '../assets/images/Character/FacialExpression/FacialExpression_Naughty.png'
+import neuitral from '../assets/images/Character/FacialExpression/FacialExpression_Neuitral.png'
 import playful from '../assets/images/Character/FacialExpression/FacialExpression_Playful.png'
 import surprise from '../assets/images/Character/FacialExpression/FacialExpression_Surprise.png'
 
@@ -21,13 +23,13 @@ import outlinefa2 from '../assets/images/Character/Accessory/FaceAccessory/Round
 import { ReactComponent as colorfa2 } from '../assets/images/Character/Accessory/FaceAccessory/RoundGlasses/FaceAccessory_RoundGlasses_WhiteOverlay.svg'
 
 import outlinefa3 from '../assets/images/Character/Accessory/FaceAccessory/SquareGlasses/FaceAccessory_SquareGlasses_Outline.png'
-// import { ReactComponent as colorfa3 } from '../assets/images/Character/Accessory/FaceAccessory/SquareGlasses/FaceAccessory_SquareGlasses_WhiteOverlay.svg'
+import { ReactComponent as colorfa3 } from '../assets/images/Character/Accessory/FaceAccessory/SquareGlasses/FaceAccessory_SquareGlasses_WhiteOverlay.svg'
 
 import outlinefa4 from '../assets/images/Character/Accessory/FaceAccessory/StarGlasses/FaceAccessory_StarGlasses_Outline.png'
 import { ReactComponent as colorfa4 } from '../assets/images/Character/Accessory/FaceAccessory/StarGlasses/FaceAccessory_StarGlasses_WhiteOverlay.svg'
 
 import outlinefa5 from '../assets/images/Character/Accessory/FaceAccessory/SwirlGlasses/FaceAccessory_SwirlGlasses_Outline.png'
-// import { ReactComponent as colorfa5 } from '../assets/images/Character/Accessory/FaceAccessory/SwirlGlasses/FaceAccessory_SwirlGlasses_WhiteOverlay.svg'
+import { ReactComponent as colorfa5 } from '../assets/images/Character/Accessory/FaceAccessory/SwirlGlasses/FaceAccessory_SwirlGlasses_WhiteOverlay.svg'
 
 import grayfacl from '../assets/images/Character/Accessory/FaceAccessory/ClownMakeup/FaceAccessory_ClownMakeup_Grayscale.png'
 import outlinefacl from '../assets/images/Character/Accessory/FaceAccessory/ClownMakeup/FaceAccessory_ClownMakeup_Outline.png'
@@ -246,8 +248,8 @@ import { ReactComponent as colortopp } from '../assets/images/Character/Top/Plai
 /////////// Top ////////////
 
 import { ReactComponent as colorsh2 } from '../assets/images/Character/Shoe/Skates/Shoe_Skates_WhiteOverlay.svg'
-import tileOutline from '../assets/images/UI/Mobile/MainPage/ColorPalette/UIMobile_ColorPalette_ColorNormal_Outline.png'
-import { ReactComponent as tileColor } from '../assets/images/UI/Mobile/MainPage/ColorPalette/UIMobile_ColorPalette_ColorNormal_WhiteOverlay.svg'
+import tileOutline from '../assets/images/UI/Mobile/MainPage/ColorPalette/UIMobile_ColorPalette_Outline.png'
+import { ReactComponent as tileColor } from '../assets/images/UI/Mobile/MainPage/ColorPalette/UIMobile_ColorPalette_WhiteOverlay.svg'
 
 
 const triangle = {
@@ -561,6 +563,24 @@ const fxHappy = {
     height: 1024
   }
 }
+const fxNaughty = {
+  layers: {
+    outline: naughty,
+  },
+  original: {
+    width: 1024,
+    height: 1024
+  }
+}
+const fxNeuitral = {
+  layers: {
+    outline: neuitral,
+  },
+  original: {
+    width: 1024,
+    height: 1024
+  }
+}
 const fxPlayful = {
   layers: {
     outline: playful,
@@ -579,7 +599,7 @@ const fxSurprise = {
     height: 1024
   }
 }
-export const fx = { fxAngry, fxConcerned, fxExcited, fxHappy, fxPlayful, fxSurprise }
+export const fx = { fxAngry, fxConcerned, fxExcited, fxHappy, fxNaughty, fxNeuitral, fxPlayful, fxSurprise }
 const faMask = {
   layers: {
     gray: grayfa,
@@ -616,7 +636,7 @@ const faGlass = {
 }
 const faSqGlass = {
   layers: {
-    // color: colorfa3,
+    color: colorfa3,
     outline: outlinefa3,
   },
   original: {
@@ -636,7 +656,7 @@ const faStGlass = {
 }
 const faSwGlass = {
   layers: {
-    // color: colorfa5,
+    color: colorfa5,
     outline: outlinefa5,
   },
   original: {
@@ -731,6 +751,7 @@ export const fa = {
 }
 const topCoat = {
   layers: {
+    gray: graytop,
     color: colortop,
     outline: outlinetop,
     highlight: highlighttop,
@@ -930,13 +951,11 @@ export const objects = {
   top,
 }
 export const defaultCat = 'head'
-export const defaultObj =
-{
-  hair: 'hairLong',
-  fa: 'faMask',
-  fx: 'fxHappy',
-  head: 'oval',
-  sh: 'shSkate',
-  bottom: 'longPants',
-  top: 'topCoat'
-}
+
+////////// SOund Resouce ////////////
+// import randClick from '../../assets/sounds/characterCustomizerSfx/randomize-button-click.wav'
+// import saveShareClick from '../../assets/sounds/characterCustomizerSfx/share-and-save-click.wav'
+// import changeClothClick from '../../assets/sounds/characterCustomizerSfx/change-clothes.wav'
+// import changeColorClick from '../../assets/sounds/characterCustomizerSfx/changing-color-in-color-palet.wav'
+// export {randClick, saveShareClick, }
+////////// SOund Resouce ////////////
