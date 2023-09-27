@@ -65,16 +65,13 @@ const SaveShare = ({
   const hUpload = () => {
     const ifLoggedin = getCookie("cmg_l")
     console.log('ifloggedin', ifLoggedin)
-    if (ifLoggedin != "" && ifLoggedin != "undefined") {
+    if (ifLoggedin != "" && ifLoggedin != "undefined" && ifLoggedin != null) {
       svgToPng(cap.data, cap.originWidth, cap.originHeight)
       .then(dataURL => {
         cmgSaveAvatar(dataURL)
       })
-    }else{
-      
     }
   }
-
   return <div
     id='dlg-save-share' {...props}
     style={{ display: showSaveShare ? '' : 'none' }}>

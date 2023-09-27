@@ -7,7 +7,6 @@ export function getCookie(key) {
   var keyValue = document.cookie.match("(^|;) ?" + key + "=([^;]*)(;|$)");
   return keyValue ? keyValue[2] : null;
 }
-var profile_array = JSON.parse(localStorage.getItem("userprofile"));
 export function gettoken() {
   $.post("https://char-tool-img.coolmathgames.com/logintoken",
     {
@@ -47,17 +46,6 @@ export function cmgSaveAvatar(filename) {
             },
             1000
           );
-          //if(getCookie("cmg_uid") == "" || getCookie("cmg_uid") == "undefined" || getCookie("cmg_uid") == null){            
-            //window.location.href = window.location.origin+"/user/login";
-           // window.parent.location.href = window.location.origin+"/user/login"; 
-          //}else{
-            //window.parent.location.href = window.location.origin; 
-          //}
-            
-          //profile_array.avatarimage = response;
-         // console.log(JSON.stringify(profile_array));
-          //localStorage.setItem("userprofile", JSON.stringify(profile_array));
-          // saveUserProgress();
         }
       } else {
         alert('file not uploaded');
