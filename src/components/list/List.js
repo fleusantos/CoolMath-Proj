@@ -281,23 +281,6 @@ const List = ({
       </div>
       <div className='content-container' ref={listRef}>
         <div className='content' style={{ height: isIphone() ? '100%' : 'auto' }}>
-          {Object.keys(paginateObjectProperties(objects[category], pageSize)[pageIndex] || {})?.map((object, index) =>
-            <Obj
-              index={index}
-              config={config}
-              object={object}
-              category={category}
-              key={`head-list${object}`}
-              selectObj={selectObj}
-              selected={selectedObj == object}
-              categoryColor={categoryColor}
-              changeColor={changeColor}
-              listRef={listRef}
-              mobileMod={mobileMod}
-              playBtnClickSound={playBtnClickSound}
-              className={`item ${selectedObj == object ? 'selected' : ''}`}
-            />
-          )}
         </div>
       </div>
       {gtotalPages > 1 &&

@@ -47,9 +47,9 @@ const Panel = () => {
     top: 'white',
   })
   const loadResult = useRef({
-    tabs: false,
-    cover: false,
-    listbg: false,
+    tabs: true,
+    cover: true,
+    listbg: true,
   })
   const [allLoaded, setAllLoaded] = useState(false)
   const [bg, setBg] = useState(null)
@@ -67,7 +67,7 @@ const Panel = () => {
   const [cap, setCap] = useState({ data: null, mobileMod: false })
   const [categoryObj, setCategoryObj] = useState(config.defaultObj)
   const [panelWH, setPanelWH] = useState({ width: 1, height: 1 })
-  const [bgLoaded, setBgLoaded] = useState(false)
+  const [bgLoaded, setBgLoaded] = useState(true)
 
   const [randSound] = useSound(randClick)
   const [playShutterSound] = useSound(shutterSound)
@@ -104,9 +104,9 @@ const Panel = () => {
     const clientHeight = getCurPanelHeight()
     function resetLoadingStatus() {
       loadResult.current = {
-        tabs: false,
-        cover: !showCoverRef.current || false,
-        listbg: false,
+        tabs: true,
+        cover: !showCoverRef.current || true,
+        listbg: true,
       }
       setAllLoaded(false)
     }
@@ -376,12 +376,11 @@ const Panel = () => {
           />}
         </div>
       </div>
-      <BgSetter
+      {/* <BgSetter
         style={showCover ? { display: 'none' } : {}}
-        setBg={setBg}
         mobileMod={mobileMod}
         playBtnClickSound={playBtnClickSound}
-      />
+      /> */}
       {!showCover && <>
         <Lazy className='btn btn-save-share' src={saveImg} onClick={ShowSaveShare} />
       </>}
