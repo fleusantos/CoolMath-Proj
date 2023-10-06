@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.7426e676.css",
-    "main.js": "./static/js/main.d7d9d2b7.js",
+    "main.css": "./static/css/main.51692690.css",
+    "main.js": "./static/js/main.385c0ed3.js",
     "static/js/845.06b2f083.chunk.js": "./static/js/845.06b2f083.chunk.js",
     "static/js/787.28cb0dcd.chunk.js": "./static/js/787.28cb0dcd.chunk.js",
     "static/media/UIDesktop_MainPage_Background_CMGTG.png": "./static/media/UIDesktop_MainPage_Background_CMGTG.f44cc4837159648d2010.png",
@@ -248,13 +248,13 @@
     "static/media/HatAccessory_Pencil_WhiteOverlay.svg": "./static/media/HatAccessory_Pencil_WhiteOverlay.b84c7a7eea4e03cb5b4c6599b0406d7b.svg",
     "static/media/UIMobile_ColorPalette_WhiteOverlay.svg": "./static/media/UIMobile_ColorPalette_WhiteOverlay.73c5488b5ad44dc1d196648ed651fbcb.svg",
     "index.html": "./index.html",
-    "main.7426e676.css.map": "./static/css/main.7426e676.css.map",
-    "main.d7d9d2b7.js.map": "./static/js/main.d7d9d2b7.js.map",
+    "main.51692690.css.map": "./static/css/main.51692690.css.map",
+    "main.385c0ed3.js.map": "./static/js/main.385c0ed3.js.map",
     "845.06b2f083.chunk.js.map": "./static/js/845.06b2f083.chunk.js.map",
     "787.28cb0dcd.chunk.js.map": "./static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7426e676.css",
-    "static/js/main.d7d9d2b7.js"
+    "static/css/main.51692690.css",
+    "static/js/main.385c0ed3.js"
   ]
 }
