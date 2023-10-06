@@ -21,30 +21,67 @@ const Base = ({
     outline: false,
     highlight: false,
   })
+  const imgDatRef = useRef({
+    gray: null,
+    outline: null,
+    highlight: null,
+  })
+  const [imgDatState, setImgDatState] = useState({
+    gray: null,
+    outline: null,
+    highlight: null,
+  })
   const [style, setStyle] = useState({})
 
   useEffect(() => {
-    let f1, f2, f3
-    layersRef.current.gray?.addEventListener('load', f1 = () => {
+    let loadedCount = 0
+
+    imgDatRef.current.gray = new Image()
+    imgDatRef.current.gray.src = object.layers.gray
+    imgDatRef.current.gray.onload = () => {
       loadedRef.current.gray = true
       checkAllLoaded()
-    })
-    layersRef.current.outline?.addEventListener('load', f2 = () => {
-      loadedRef.current.outline = true
-      checkAllLoaded()
-    })
-    layersRef.current.highlight?.addEventListener('load', f3 = () => {
-      loadedRef.current.highlight = true
-      checkAllLoaded()
-    })
-    if (object.layers.outline?.includes('data:image')) {
+    }
+    imgDatRef.current.outline = new Image()
+    imgDatRef.current.outline.src = object.layers.outline
+    imgDatRef.current.outline.onload = () => {
       loadedRef.current.outline = true
       checkAllLoaded()
     }
-    return () => {
-      layersRef.current.gray?.removeEventListener('load', f1)
-      layersRef.current.outline?.removeEventListener('load', f2)
-      layersRef.current.highlight?.removeEventListener('load', f3)
+    imgDatRef.current.highlight = new Image()
+    imgDatRef.current.highlight.src = object.layers.highlight
+    imgDatRef.current.highlight.onload = () => {
+      loadedRef.current.highlight = true
+      checkAllLoaded()
+    }
+    setImgDatState({
+      gray: imgDatRef.current.gray,
+      outline: imgDatRef.current.outline,
+      highlight: imgDatRef.current.highlight,
+    })
+
+    // layersRef.current.gray?.addEventListener('load', () => {
+    //   loadedRef.current.gray = true
+    //   console.log('image loaded newly')
+    //   checkAllLoaded()
+    //   loadedCount++
+    // })
+    // layersRef.current.outline?.addEventListener('load', () => {
+    //   loadedRef.current.outline = true
+    //   console.log('image loaded newly')
+    //   checkAllLoaded()
+    //   loadedCount++
+    // })
+    // layersRef.current.highlight?.addEventListener('load', () => {
+    //   loadedRef.current.highlight = true
+    //   console.log('image loaded newly')
+    //   checkAllLoaded()
+    //   loadedCount++
+    // })
+    if (object.layers.outline?.includes('data:image')) {
+      loadedRef.current.outline = true
+      checkAllLoaded()
+      loadedCount++
     }
   }, [JSON.stringify(object)])
 
@@ -133,19 +170,22 @@ const Base = ({
 
       {object.layers.gray &&
         <img className="image layer-1"
-          src={object.layers.gray}
+          // src={object.layers.gray}
+          src={imgDatState.gray?.src}
           style={{ zIndex: baseZindex + 1 }}
           ref={ref => layersRef.current.gray = ref} />}
 
       {object.layers.highlight &&
         <img className="image layer-3"
-          src={object.layers.highlight}
+          // src={object.layers.highlight}
+          src={imgDatState.highlight?.src}
           style={{ zIndex: baseZindex + 2 }}
           ref={ref => layersRef.current.highlight = ref} />}
 
       {object.layers.outline &&
         <img className="image layer-4"
-          src={object.layers.outline}
+          // src={object.layers.outline}
+          src={imgDatState.outline?.src}
           style={{ zIndex: baseZindex + 3 }}
           ref={ref => layersRef.current.outline = ref} />}
     </div>
