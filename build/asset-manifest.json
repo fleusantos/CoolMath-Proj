@@ -1,12 +1,22 @@
 {
   "files": {
-    "main.css": "./static/css/main.51692690.css",
-    "main.js": "./static/js/main.385c0ed3.js",
+    "main.css": "./static/css/main.c93712e3.css",
+    "main.js": "./static/js/main.290b1a63.js",
     "static/js/845.06b2f083.chunk.js": "./static/js/845.06b2f083.chunk.js",
     "static/js/787.28cb0dcd.chunk.js": "./static/js/787.28cb0dcd.chunk.js",
+    "static/media/UIMobile_MainPage_FullBackground_Blonx.png": "./static/media/UIMobile_MainPage_FullBackground_Blonx.bfb184a0227e6800d5a7.png",
+    "static/media/UIMobile_MainPage_FullBackground_CMGTG.png": "./static/media/UIMobile_MainPage_FullBackground_CMGTG.8c8adcedaf517ec619fd.png",
+    "static/media/UIMobile_MainPage_FullBackground_FBWG.png": "./static/media/UIMobile_MainPage_FullBackground_FBWG.1d944799d4bd39818350.png",
+    "static/media/UIMobile_MainPage_FullBackground_Pizzeria.png": "./static/media/UIMobile_MainPage_FullBackground_Pizzeria.d97492064ff37d5ee80b.png",
     "static/media/UIDesktop_MainPage_Background_CMGTG.png": "./static/media/UIDesktop_MainPage_Background_CMGTG.f44cc4837159648d2010.png",
     "static/media/UIDesktop_MainPage_Background_Blonx.png": "./static/media/UIDesktop_MainPage_Background_Blonx.96eda640c24e428f7ea9.png",
+    "static/media/UIMobile_MainPage_FullBackground_Blue.png": "./static/media/UIMobile_MainPage_FullBackground_Blue.f0e316005aa2d93c7bb4.png",
+    "static/media/UIMobile_MainPage_FullBackground_Green.png": "./static/media/UIMobile_MainPage_FullBackground_Green.9945fb6f6847feb26892.png",
+    "static/media/UIMobile_MainPage_FullBackground_Cyan.png": "./static/media/UIMobile_MainPage_FullBackground_Cyan.c913413e9201f8cc1830.png",
+    "static/media/UIMobile_MainPage_FullBackground_Purple.png": "./static/media/UIMobile_MainPage_FullBackground_Purple.4f087e3201fcdbfdc908.png",
+    "static/media/UIMobile_MainPage_FullBackground_Orange.png": "./static/media/UIMobile_MainPage_FullBackground_Orange.c2228d7a9438d9036e1c.png",
     "static/media/UIDesktop_MainPage_Background_FBWG.png": "./static/media/UIDesktop_MainPage_Background_FBWG.49a103ed90d61cbe793c.png",
+    "static/media/UIMobile_MainPage_FullBackground_Run.png": "./static/media/UIMobile_MainPage_FullBackground_Run.47e6cf44a50ba47a36f6.png",
     "static/media/UIMobile_MainPage_Background_Blonx.png": "./static/media/UIMobile_MainPage_Background_Blonx.ff5dc778accf4e1ef508.png",
     "static/media/UIDesktop_MainPage_Background_Pizzeria.png": "./static/media/UIDesktop_MainPage_Background_Pizzeria.a412d9e20e1b8dea34b4.png",
     "static/media/UIMobile_MainPage_Background_CMGTG.png": "./static/media/UIMobile_MainPage_Background_CMGTG.2eb8a1ebc87c8144f7c1.png",
@@ -248,13 +258,13 @@
     "static/media/HatAccessory_Pencil_WhiteOverlay.svg": "./static/media/HatAccessory_Pencil_WhiteOverlay.b84c7a7eea4e03cb5b4c6599b0406d7b.svg",
     "static/media/UIMobile_ColorPalette_WhiteOverlay.svg": "./static/media/UIMobile_ColorPalette_WhiteOverlay.73c5488b5ad44dc1d196648ed651fbcb.svg",
     "index.html": "./index.html",
-    "main.51692690.css.map": "./static/css/main.51692690.css.map",
-    "main.385c0ed3.js.map": "./static/js/main.385c0ed3.js.map",
+    "main.c93712e3.css.map": "./static/css/main.c93712e3.css.map",
+    "main.290b1a63.js.map": "./static/js/main.290b1a63.js.map",
     "845.06b2f083.chunk.js.map": "./static/js/845.06b2f083.chunk.js.map",
     "787.28cb0dcd.chunk.js.map": "./static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.51692690.css",
-    "static/js/main.385c0ed3.js"
+    "static/css/main.c93712e3.css",
+    "static/js/main.290b1a63.js"
   ]
 }
