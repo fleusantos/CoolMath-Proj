@@ -18,9 +18,10 @@ export function gettoken() {
       }
     });
 }
-export function cmgSaveAvatar(filename) {
+export function cmgSaveAvatar(filename,filename1) {
   var fd = JSON.stringify({
     "datas": filename.trim(),
+    "data1": filename1.trim(),
     "userid": getCookie("cmg_uid")
   });
   $.ajax({
