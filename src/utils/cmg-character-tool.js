@@ -18,11 +18,10 @@ export function gettoken() {
       }
     });
 }
-export function cmgSaveAvatar(filename,filename1) {
+export function cmgSaveAvatar(profileimage,bodyfullimage) {
   var fd = JSON.stringify({
-    "datas": filename.trim(),
-    "data1": filename1.trim(),
-    "userid": getCookie("cmg_uid")
+    "profileimage": profileimage.trim(),
+    "bodyfullimage": bodyfullimage.trim()
   });
   $.ajax({
     url: 'https://char-tool-img.coolmathgames.com/upload-avatar',
@@ -38,8 +37,9 @@ export function cmgSaveAvatar(filename,filename1) {
       if (response != 0) {
         if (response.auth == false) {
           gettoken();
-          cmgSaveAvatar(filename);
+          cmgSaveAvatar(profileimage,bodyfullimage);
         } else {
+          console.log(response);
           var message = "avataruploads";
           localStorage.setItem("my-coolmather-avatar", response);
           setTimeout(() => {
@@ -53,7 +53,7 @@ export function cmgSaveAvatar(filename,filename1) {
       }
     }, error: function (jqXHR, exception) {
       gettoken();
-      cmgSaveAvatar(filename);
+      cmgSaveAvatar(profileimage,bodyfullimage);
     }
   });
 }
