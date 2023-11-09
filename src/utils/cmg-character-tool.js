@@ -7,6 +7,7 @@ export function getCookie(key) {
   var keyValue = document.cookie.match("(^|;) ?" + key + "=([^;]*)(;|$)");
   return keyValue ? keyValue[2] : null;
 }
+var profile_array = JSON.parse(localStorage.getItem("userprofile"));
 export function gettoken() {
   $.post("https://char-tool-img.coolmathgames.com/logintoken",
     {
@@ -18,7 +19,8 @@ export function gettoken() {
       }
     });
 }
-export function cmgSaveAvatar(profileimage,bodyfullimage) {
+
+export function cmgSaveAvatar(profileimage,bodyfullimage, callback) {
   var fd = JSON.stringify({
     "profileimage": profileimage.trim(),
     "bodyfullimage": bodyfullimage.trim()
@@ -34,6 +36,8 @@ export function cmgSaveAvatar(profileimage,bodyfullimage) {
       "x-access-token": localStorage.getItem("authtoken")
     },
     success: function (response) {
+      let success = false
+
       if (response != 0) {
         if (response.auth == false) {
           gettoken();
@@ -41,19 +45,33 @@ export function cmgSaveAvatar(profileimage,bodyfullimage) {
         } else {
           console.log(response);
           var message = "avataruploads";
-          localStorage.setItem("my-coolmather-avatar", response);
+          // localStorage.setItem("my-coolmather-avatar", response);
+          localStorage.setItem("cmg_avatar_profile_image", response[0]);
+          localStorage.setItem("cmg_avatar_fullbody_image", response[1]);
           setTimeout(() => {
               window.parent.postMessage(message, "*");
             },
             1000
           );
+
+          // flag as success
+          success = true
         }
       } else {
         alert('file not uploaded');
       }
+
+      const cookieKey = "cmg_uid"
+      const uploadSuccess = getCookie(cookieKey) == null ? false : true
+      callback(uploadSuccess)
     }, error: function (jqXHR, exception) {
       gettoken();
-      cmgSaveAvatar(profileimage,bodyfullimage);
+      cmgSaveAvatar(profileimage,bodyfullimage, callback);
     }
   });
 }
+
+
+
+
+

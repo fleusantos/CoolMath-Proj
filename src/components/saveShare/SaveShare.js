@@ -5,6 +5,7 @@ import { ReactSVG } from 'react-svg'
 import Lazy from '../lazy/Lazy'
 import { getCookie, cmgSaveAvatar } from '../../utils/cmg-character-tool'
 import { svgToPng } from '../../utils/functions'
+import loadingIcon from '../../assets/images/loading.gif'
 
 import bg from '../../assets/images/UI/Desktop/SavePage/NotebookPage/UIDesktop_SavePage_NotebookPage_PageBackground.png'
 import bgMob from '../../assets/images/UI/Mobile/SavePage/NotebookPage/UIMobile_SavePage_NotebookPage_PageBackground.png'
@@ -25,9 +26,15 @@ import setaBtnMob from '../../assets/images/UI/Mobile/SavePage/Button/UIMobile_S
 import successMsg from '../../assets/images/UI/Desktop/SavePage/NotebookPage/UIDesktop_SavePage_NotebookPage_CopiedMessage.png'
 import successMsgMob from '../../assets/images/UI/Mobile/SavePage/NotebookPage/UIMobile_SavePage_NotebookPage_CopiedMessage.png'
 
+import successUpload from '../../assets/images/UI/Desktop/SavePage/NotebookPage/UIDesktop_SavePage_NotebookPage_Avatar_Updated.png'
+import successUploadMob from '../../assets/images/UI/Mobile/SavePage/NotebookPage/UIMobile_SavePage_NotebookPage_Avatar_Updated.png'
+
+import anime from 'animejs'
+
 
 const SaveShare = ({
   cap,
+  headCap,
   copy,
   download,
   mobileMod,
@@ -38,7 +45,11 @@ const SaveShare = ({
   playBtnClickSound,
   ...props }) => {
 
-  const [style, setStyle] = useState({})
+  const [opacity, setOpacity] = useState(0)
+  const [testImg, setTestImg] = useState(null)
+  const [head, setHead] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [uploadSuccess, setUploadSuccess] = useState(false)
 
   useEffect(() => {
     return () => {
@@ -46,9 +57,18 @@ const SaveShare = ({
     }
   }, [])
   useEffect(() => {
-    if (!copyClipSuccess) setStyle({ display: 'none' })
-    else setStyle({ display: 'block' })
-  }, [copyClipSuccess])
+    let properties = { opacity: 0 }
+    anime({
+      targets: properties,
+      opacity: 1,
+      update: () => {
+        setOpacity(properties.opacity)
+      }
+    })
+  }, [cap])
+  useEffect(() => {
+    setOpacity(0)
+  }, [showSaveShare])
 
   const hClose = () => {
     closeSaveShare()
@@ -62,61 +82,84 @@ const SaveShare = ({
     download()
     playBtnClickSound()
   }
-  const hUpload = () => {
-    const ifLoggedin = getCookie("cmg_l")
-    console.log('ifloggedin', ifLoggedin)
-    if (ifLoggedin != "" && ifLoggedin != "undefined" && ifLoggedin != null) {
-      svgToPng(cap.data, cap.originWidth, cap.originHeight)
-      .then(dataURL => {
-        cmgSaveAvatar(dataURL)
-      })
+  const signal_Finished = (uploadSuccess) => {
+    setLoading(false)
+    if (uploadSuccess) {
+      setUploadSuccess(true)
+      setTimeout(() => {
+        setUploadSuccess(false)
+      }, 3000);
     }
   }
+  const hUpload = () => {
+    cropImageFromDataURL(cap.data, 80, 25, 240, 240, (faceOnlyImageDataUrl) => {
+      const ifLoggedin = getCookie("cmg_l")
+      // if (ifLoggedin != "" && ifLoggedin != "undefined") {
+      svgToPng(cap.data, cap.originWidth, cap.originHeight)
+        .then(fullBodyDataUrl => {
+          cmgSaveAvatar(faceOnlyImageDataUrl, fullBodyDataUrl, signal_Finished)
+        })
+      // } else {
+
+      // }
+    })
+    setLoading(true)
+  }
+  function cropImageFromDataURL(dataURL, x, y, width, height, callback) {
+    // Create an Image object
+    var img = new Image();
+
+    // Set a callback function to execute once the image is loaded
+    img.onload = function () {
+      // Create a canvas element
+      var canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+
+      // Draw the cropped image onto the canvas
+      var context = canvas.getContext('2d');
+      context.drawImage(img, x, y, width, height, 0, 0, width, height);
+
+      // Retrieve the cropped image data URL
+      var croppedDataURL = canvas.toDataURL();
+
+      // Use the croppedDataURL as needed (e.g., display or save it)
+      console.log(croppedDataURL);
+
+      setHead(croppedDataURL)
+      callback(croppedDataURL)
+    };
+
+    // Set the source of the image as the data URL
+    img.src = dataURL;
+  }
+
   return <div
     id='dlg-save-share' {...props}
     style={{ display: showSaveShare ? '' : 'none' }}>
 
     <Lazy className='bg' src={!mobileMod ? bg : bgMob} />
 
-    <img className='msg'
-      src={!mobileMod ? successMsg : successMsgMob}
-      style={style} />
+    <img className={`msg ${ copyClipSuccess ? 'show' : '' }`}
+      src={!mobileMod ? successMsg : successMsgMob} />
+    <img className={`msg ${ uploadSuccess ? 'show' : '' }`}
+      src={!mobileMod ? successUpload : successUploadMob} />
     <img className='btn close' src={close} onClick={hClose} />
 
     <div className='main'>
       <div className='img-container'>
+        {/* <img src={head} /> */}
+
         <div className='box'>
           <div className='viewport'>
-            {/* <img className='avatar' src={cap.data} style={
-              mobileMod ?
-                (cap.mobileMod ? {
-                  left: `50%`,
-                  top: `50%`,
-                  transform: `translate(-50%, -50%)`,
-                } : {
-                  left: `50%`,
-                  top: `50%`,
-                  transform: `scale(0.9) translate(-59%, -56%)`,
-                })
-                : (cap.mobileMod ? {
-                  left: `50%`,
-                  top: `3%`,
-                  transform: `scale(1.3) translate(-40%, 10%)`,
-                } : {
-                  left: `50%`,
-                  top: `50%`,
-                  transform: `translate(-50%, -50%)`,
-                })
-            } /> */}
-            {/* <ReactSVG 
-            src={cap.data} /> */}
+            <img className='load-icon' src={loadingIcon} />
             <svg
               className='avatar'
               width={300}
               height={300}
               viewBox={`0 0 ${cap.originWidth} ${cap.originHeight}`}
-              style={
-                mobileMod ?
+              style={{
+                ...mobileMod ?
                   (cap.mobileMod ? {
                     left: `50%`,
                     top: `50%`,
@@ -134,8 +177,9 @@ const SaveShare = ({
                     left: `50%`,
                     top: `50%`,
                     transform: `translate(-50%, -50%) scale(1.2)`,
-                  })
-              }
+                  }),
+                opacity
+              }}
             >
               <image href={cap.data} />
             </svg>
@@ -146,7 +190,12 @@ const SaveShare = ({
       <div className='btn-group'>
         <img className='btn' src={!mobileMod ? copyBtn : copyBtnMob} onClick={hCopy} />
         <img className='btn' src={!mobileMod ? downBtn : downBtnMob} onClick={hDownload} />
-        <img className='btn' src={!mobileMod ? setaBtn : setaBtnMob} onClick={hUpload} />
+        <div className='btn-container'>
+          <img className='btn' src={!mobileMod ? setaBtn : setaBtnMob} onClick={hUpload} />
+          <div className={`icon-container ${loading ? 'show' : ''}`}>
+            <img className='icon-load' src={loadingIcon} />
+          </div>
+        </div>
       </div>
     </div>
 
