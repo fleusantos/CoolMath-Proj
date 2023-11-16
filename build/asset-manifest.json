@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.e69e7717.css",
-    "main.js": "./static/js/main.f5a8a464.js",
+    "main.js": "./static/js/main.df0a7138.js",
     "static/js/845.06b2f083.chunk.js": "./static/js/845.06b2f083.chunk.js",
     "static/js/787.28cb0dcd.chunk.js": "./static/js/787.28cb0dcd.chunk.js",
     "static/media/UIMobile_MainPage_FullBackground_Blonx.png": "./static/media/UIMobile_MainPage_FullBackground_Blonx.bfb184a0227e6800d5a7.png",
@@ -261,12 +261,12 @@
     "static/media/UIMobile_ColorPalette_WhiteOverlay.svg": "./static/media/UIMobile_ColorPalette_WhiteOverlay.73c5488b5ad44dc1d196648ed651fbcb.svg",
     "index.html": "./index.html",
     "main.e69e7717.css.map": "./static/css/main.e69e7717.css.map",
-    "main.f5a8a464.js.map": "./static/js/main.f5a8a464.js.map",
+    "main.df0a7138.js.map": "./static/js/main.df0a7138.js.map",
     "845.06b2f083.chunk.js.map": "./static/js/845.06b2f083.chunk.js.map",
     "787.28cb0dcd.chunk.js.map": "./static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e69e7717.css",
-    "static/js/main.f5a8a464.js"
+    "static/js/main.df0a7138.js"
   ]
 }
