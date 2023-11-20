@@ -20,14 +20,36 @@ export function gettoken() {
     });
 }
 
-export function cmgSaveAvatar(profileimage,bodyfullimage, callback) {
+export function cmgSaveAvatar(profileimage, bodyfullimage, characterBodyData, callback) {
+  let userid = null
+  const cookieKey = "cmg_uid"
+
+  if (
+    typeof getCookie("cmg_uid") != "undefined"
+    && getCookie("cmg_uid") != null
+    && getCookie("cmg_uid") != "") {
+      
+    userid = getCookie(cookieKey)
+  }
+
+  const { head, hair, fa, fx, top, bottom, sh } = characterBodyData
   var fd = JSON.stringify({
     "profileimage": profileimage.trim(),
-    "bodyfullimage": bodyfullimage.trim()
+    "bodyfullimage": bodyfullimage.trim(),
+    "userid": userid,
+    "characterBody": {
+      "head": head,
+      "hair": hair,
+      "fa":  fa,
+      "fx": fx,
+      "top": top,
+      "bottom": bottom,
+      "sh": sh
+    }
   });
   $.ajax({
     url: 'https://char-tool-img.coolmathgames.com/upload-avatar',
-     //url : 'http://localhost:3000/upload-avatar',
+    //url : 'http://localhost:3000/upload-avatar',
     type: 'post',
     data: fd,
     contentType: "application/json",
@@ -41,16 +63,17 @@ export function cmgSaveAvatar(profileimage,bodyfullimage, callback) {
       if (response != 0) {
         if (response.auth == false) {
           gettoken();
-          cmgSaveAvatar(profileimage,bodyfullimage);
+          cmgSaveAvatar(profileimage, bodyfullimage, characterBodyData, callback);
         } else {
-          console.log(response);
+          console.log('response', response);
           var message = "avataruploads";
           // localStorage.setItem("my-coolmather-avatar", response);
           localStorage.setItem("cmg_avatar_profile_image", response[0]);
           localStorage.setItem("cmg_avatar_fullbody_image", response[1]);
+          localStorage.setItem("charactor_body_data", JSON.stringify(response[2]));
           setTimeout(() => {
-              window.parent.postMessage(message, "*");
-            },
+            window.parent.postMessage(message, "*");
+          },
             1000
           );
 
@@ -66,7 +89,7 @@ export function cmgSaveAvatar(profileimage,bodyfullimage, callback) {
       callback(uploadSuccess)
     }, error: function (jqXHR, exception) {
       gettoken();
-      cmgSaveAvatar(profileimage,bodyfullimage, callback);
+      cmgSaveAvatar(profileimage, bodyfullimage, characterBodyData, callback);
     }
   });
 }

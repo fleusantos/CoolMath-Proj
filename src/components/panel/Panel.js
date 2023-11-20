@@ -1,9 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import domtoimage from 'dom-to-image';
-// import domtoimage from 'dom-to-image-improved';
 import useSound from 'use-sound'
-import html2canvas from 'html2canvas'
-import { toPng, toSvg } from 'html-to-image'
 
 import './Panel.scss'
 import config from '../../config.json'
@@ -12,7 +9,6 @@ import Pan from '../pan/Pan'
 import Lazy from '../lazy/Lazy';
 import Smooth from '../smooth/Smooth';
 import BgSetter from '../bgSetter/BgSetter';
-// import ConfigPan from '../configPan/ConfigPan';
 import SaveShare from '../saveShare/SaveShare';
 import Cover from '../cover/Cover';
 import LoadDetector from '../loadDetector/LoadDetector';
@@ -21,7 +17,15 @@ import LandscapeModeDetector from '../landscapeModeDetector/LandscapeModeDetecto
 ////////// Image Resouce ////////////
 import saveImg from '../../assets/images/UI/Desktop/MainPage/Button/UIDesktop_MainPage_Button_ShareSaveButton.png'
 import randomBtn from '../../assets/images/UI/Desktop/MainPage/Button/UIDesktop_MainPage_Button_ShuffleButton.png'
-import { categories, objects, defaultCat, fa } from '../../utils/globals';
+import {
+  categories,
+  objects,
+  defaultCat,
+  fa,
+  RandomizeObj,
+  GetRandomCategory,
+  GetCurrentObj
+} from '../../utils/globals';
 import { svgToPng } from '../../utils/functions';
 ////////// Image Resouce ////////////
 
@@ -31,6 +35,17 @@ import shutterSound from '../../assets/sounds/characterCustomizerSfx/share-and-s
 import btnClickSound from '../../assets/sounds/characterCustomizerSfx/general-button-press.wav'
 import startClickSound from '../../assets/sounds/characterCustomizerSfx/start-button-press-page-turn.wav'
 ////////// Sound Resouce ////////////
+
+// test code
+// localStorage.setItem('charactor_body_data', JSON.stringify({
+//   bottom: "puffyShorts",
+//   fa: "htaChef",
+//   fx: "fxPlayful",
+//   hair: "hairLong",
+//   head: "circular",
+//   sh: "shBoot",
+//   top: "topPlain",
+// }))
 
 const isMobileMode = false
 
@@ -47,9 +62,9 @@ const Panel = () => {
     top: 'white',
   })
   const loadResult = useRef({
-    tabs: true,
-    cover: true,
-    listbg: true,
+    tabs: false,
+    cover: false,
+    listbg: false,
   })
   const [allLoaded, setAllLoaded] = useState(false)
   const [bg, setBg] = useState(null)
@@ -65,9 +80,10 @@ const Panel = () => {
   const [showSaveShare, setShowSaveShare] = useState(false)
   const [copyClipSuccess, setCopyClipSuccess] = useState(false)
   const [cap, setCap] = useState({ data: null, mobileMod: false })
-  const [categoryObj, setCategoryObj] = useState(config.defaultObj)
+  // const [categoryObj, setCategoryObj] = useState(config.defaultObj)
+  const [categoryObj, setCategoryObj] = useState(GetCurrentObj())
   const [panelWH, setPanelWH] = useState({ width: 1, height: 1 })
-  const [bgLoaded, setBgLoaded] = useState(true)
+  const [bgLoaded, setBgLoaded] = useState(false)
 
   const [randSound] = useSound(randClick)
   const [playShutterSound] = useSound(shutterSound)
@@ -104,9 +120,9 @@ const Panel = () => {
     const clientHeight = getCurPanelHeight()
     function resetLoadingStatus() {
       loadResult.current = {
-        tabs: true,
-        cover: !showCoverRef.current || true,
-        listbg: true,
+        tabs: false,
+        cover: !showCoverRef.current || false,
+        listbg: false,
       }
       setAllLoaded(false)
     }
@@ -162,12 +178,12 @@ const Panel = () => {
     let { x, y, width, height } = getChildRect(childElement, parentElement)
 
     function filter(node) {
-      // console.log('node', node.nodeName, ['IMG', 'DIV', 'svg', 'g', 'path'].includes(node.nodeName))
       return ['IMG', 'DIV', 'svg', 'g', 'path'].includes(node.nodeName)
         && !JSON.stringify(node.className).includes('bg-setter')
         && !JSON.stringify(node.className).includes('tab-container')
         && !JSON.stringify(node.className).includes('btn-rand')
         && !JSON.stringify(node.className).includes('btn-save-share');
+      // return true
     }
     var options = {
       width: width,
@@ -181,10 +197,8 @@ const Panel = () => {
       },
       filter,
     };
-    console.log('before take screen')
     domtoimage.toSvg(element, options)
       .then(function (dataUrl) {
-        console.log('after take screen')
         setCap({
           data: dataUrl,
           originWidth: width,
@@ -231,46 +245,34 @@ const Panel = () => {
     document.execCommand('copy');
 
     document.body.removeChild(tempElement);
-
-    // Optionally, provide user feedback (e.g., a message or notification)
-    // alert('Image URL copied to clipboard');
   }
   const showWhile = () => {
     setCopyClipSuccess(true)
     setTimeout(() => {
       setCopyClipSuccess(false)
-    }, 5000);
+    }, 3000);
   }
   const copy = () => {
-    // alert('out')
     svgToPng(cap.data, cap.originWidth, cap.originHeight)
       .then(dataUrl => {
 
-        // alert('before change blob')
         var blob = dataURLToBlob(dataUrl);
-        // alert('after change blob')
 
         if (navigator?.clipboard) {
-          // alert('if')
           navigator.clipboard.write([
             new ClipboardItem({
               'image/png': blob,
             })
           ]).then(() => {
             showWhile()
-            // alert('sucess')
-            // console.log('1')
           }).catch(error => {
             console.error('Failed to copy image to clipboard:', error);
             copyDataUrlToClipboard(dataUrl)
             showWhile()
-            // alert('sucess')
           }).catch(error => {
             console.error('2 Failed to copy image to clipboard:', error);
-            // alert('failed')
           });
         } else {
-          // console.log('2')
           alert('else')
           copyDataUrlToClipboard(dataUrl)
           showWhile()
@@ -296,6 +298,8 @@ const Panel = () => {
     })
     // play sound
     randSound()
+
+    console.log('categoryobject', categoryObj)
   }
   function rand(lowValue, highValue) {
     return Math.floor(Math.random() * (highValue - lowValue + 1)) + lowValue
@@ -315,15 +319,21 @@ const Panel = () => {
   }
   const setTabsLoaded = () => {
     loadResult.current.tabs = true
-    setAllLoaded(checkAllLoaded())
+    setTimeout(() => {
+      setAllLoaded(checkAllLoaded())
+    }, 1000);
   }
   const setCoverLoaded = () => {
     loadResult.current.cover = true
-    setAllLoaded(checkAllLoaded())
+    setTimeout(() => {
+      setAllLoaded(checkAllLoaded())
+    }, 1000);
   }
   const setListBgLoaded = () => {
     loadResult.current.listbg = true
-    setAllLoaded(checkAllLoaded())
+    setTimeout(() => {
+      setAllLoaded(checkAllLoaded())
+    }, 1000);
   }
   return <>
     {/* -------------- Panel --------------- */}
@@ -376,11 +386,12 @@ const Panel = () => {
           />}
         </div>
       </div>
-      {/* <BgSetter
+      <BgSetter
         style={showCover ? { display: 'none' } : {}}
+        setBg={setBg}
         mobileMod={mobileMod}
         playBtnClickSound={playBtnClickSound}
-      /> */}
+      />
       {!showCover && <>
         <Lazy className='btn btn-save-share' src={saveImg} onClick={ShowSaveShare} />
       </>}
@@ -389,7 +400,10 @@ const Panel = () => {
         showSaveShare={showSaveShare}
         closeSaveShare={closeSaveShare}
         copy={copy}
+        conf={conf}
+        headType={categoryObj.head}
         download={download}
+        categoryObj={categoryObj}
         mobileMod={mobileMod}
         copyClipSuccess={copyClipSuccess}
         setCopyClipSuccess={setCopyClipSuccess}

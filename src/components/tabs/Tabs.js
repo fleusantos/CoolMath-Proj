@@ -82,16 +82,6 @@ const Tabs = ({
   return <>
     <div {...props} className="tabs">
       <div className="button-list">
-        {
-          categories.map((category, i) =>
-            <div className={`tab ${selTab == i ? 'active' : ''}`}>
-              <Moz
-                className="btn"
-                setLoaded={setLoaded}
-                src={mobileMod ? iconsMob[category] : icons[category]}
-                onClick={() => hClick(category, i)} />
-            </div>)
-        }
       </div>
       <List
         config={config}

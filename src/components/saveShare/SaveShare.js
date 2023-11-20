@@ -36,8 +36,11 @@ const SaveShare = ({
   cap,
   headCap,
   copy,
+  conf,
   download,
   mobileMod,
+  headType,
+  categoryObj,
   showSaveShare,
   closeSaveShare,
   copyClipSuccess,
@@ -92,12 +95,15 @@ const SaveShare = ({
     }
   }
   const hUpload = () => {
-    cropImageFromDataURL(cap.data, 80, 25, 240, 240, (faceOnlyImageDataUrl) => {
+    // cropImageFromDataURL(cap.data, 80, 25, 240, 240, (faceOnlyImageDataUrl) => {
+      const {x, y} = conf.position.head[headType].crop.desktop
+    cropImageFromDataURL(cap.data, x, y, 240, 240, (faceOnlyImageDataUrl) => {
       const ifLoggedin = getCookie("cmg_l")
       // if (ifLoggedin != "" && ifLoggedin != "undefined") {
+      console.log('categoryObj', categoryObj)
       svgToPng(cap.data, cap.originWidth, cap.originHeight)
         .then(fullBodyDataUrl => {
-          cmgSaveAvatar(faceOnlyImageDataUrl, fullBodyDataUrl, signal_Finished)
+          cmgSaveAvatar(faceOnlyImageDataUrl, fullBodyDataUrl, categoryObj, signal_Finished)
         })
       // } else {
 

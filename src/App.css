@@ -1,7 +1,9 @@
 .App {
   text-align: center;
   height: 100dvh;
-  background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+  overflow: hidden;
+  /* background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%); */
+  background-color: black;
 }
 
 .App-logo {

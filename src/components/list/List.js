@@ -10,7 +10,7 @@ import anime from 'animejs'
 import Moz from '../moz/Moz'
 import './List.scss'
 import Loader from '../loader/Loader'
-import { isIOS, detecter, isIphone } from '../../utils/functions'
+import { isIOS, detecter, isIphone, isAndroid } from '../../utils/functions'
 
 const Base = lazy(() => import('../base/Base'))
 const noColorCategories = ['fx']
@@ -141,34 +141,6 @@ const Obj = memo(({
             translateX: config.crop[category][object].translateX,
             translateY: config.crop[category][object].translateY
           }}
-          // animation={
-          //   category == 'top' || category == 'bottom' ?
-          //     {
-          //       init: { opacity: 0, scale: config.crop[category][object].scale + 1 },
-          //       opacity: 1,
-          //       scale: config.crop[category][object].scale,
-          //     }
-          //     :
-          //     category == 'fa' ?
-          //       {
-          //         init: { opacity: 0, translateY: config.crop[category][object].translateY - 10 },
-          //         opacity: 1,
-          //         translateY: config.crop[category][object].translateY,
-          //       }
-          //       :
-          //       category == 'fx' ?
-          //         {
-          //           init: { opacity: 0, scale: 0 },
-          //           opacity: 1,
-          //           scale: config.crop[category][object].scale,
-          //         }
-          //         :
-          //         {
-          //           init: { opacity: 0, scale: config.crop[category][object].scale - 0.1 },
-          //           opacity: 1,
-          //           scale: config.crop[category][object].scale,
-          //         }
-          // }
           animation={
             {
               init: { opacity: 0, scale: config.crop[category][object].scale + 1 },
@@ -280,7 +252,7 @@ const List = ({
         <Moz src={mobileMod ? listBgMob : listBg} setLoaded={setLoaded} />
       </div>
       <div className='content-container' ref={listRef}>
-        <div className='content' style={{ height: isIphone() ? '100%' : 'auto' }}>
+        <div className='content' style={{ height: isIphone() || isAndroid() || mobileMod ? '100%' : 'auto' }}>
         </div>
       </div>
       {gtotalPages > 1 &&

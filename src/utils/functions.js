@@ -42,3 +42,4 @@ export const svgToPng = (svgDataurl, width, height) => new Promise((resolve, rej
 export const detecter = () => detect()
 export const isIOS = () => detect().name == 'safari' || detect().name == 'ios' || detect().name == 'crios'
 export const isIphone = () => detect().os == 'iOS' && (detect().name == 'ios' || detect().name == 'crios')
+export const isAndroid = () => detect().os == 'Android OS'

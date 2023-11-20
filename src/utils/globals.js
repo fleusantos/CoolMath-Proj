@@ -251,6 +251,7 @@ import { ReactComponent as colorsh2 } from '../assets/images/Character/Shoe/Skat
 import tileOutline from '../assets/images/UI/Mobile/MainPage/ColorPalette/UIMobile_ColorPalette_Outline.png'
 import { ReactComponent as tileColor } from '../assets/images/UI/Mobile/MainPage/ColorPalette/UIMobile_ColorPalette_WhiteOverlay.svg'
 
+import { getCookie } from './cmg-character-tool'
 
 const triangle = {
   layers: {
@@ -951,6 +952,58 @@ export const objects = {
   top,
 }
 export const defaultCat = 'head'
+export const RandomizeObj = () => {
+  const keys = Object.keys(objects);
+  let result = {};
+
+  for (let i = 0; i < keys.length; i++) {
+    const currentObject = objects[keys[i]];
+    const currentObjectKeys = Object.keys(currentObject);
+    const randomIndex = Math.floor(Math.random() * currentObjectKeys.length);
+    const randomKey = currentObjectKeys[randomIndex];
+
+    result[keys[i]] = randomKey;
+  }
+
+  console.log(result);
+
+  return result
+}
+export function GetRandomCategory(categories) {
+  const randomIndex = Math.floor(Math.random() * categories.length);
+  return categories[randomIndex];
+}
+
+export const GetCurrentObj = () => {
+  let userid = null
+  const cookieKey = "cmg_uid"
+
+  if (
+    typeof getCookie("cmg_uid") != "undefined"
+    && getCookie("cmg_uid") != null
+    && getCookie("cmg_uid") != "") {
+      
+    userid = getCookie(cookieKey)
+  }
+
+  console.log('1111')
+
+  if (!userid) {
+    // erase local storage
+    localStorage.setItem('charactor_body_data', '')
+    return RandomizeObj()
+  }
+
+  console.log('2222')
+
+  const json = localStorage.getItem('charactor_body_data')
+  if (!json) return RandomizeObj()
+
+  console.log('3333')
+
+  const charactorBodyData = JSON.parse(json)
+  return charactorBodyData
+}
 
 ////////// SOund Resouce ////////////
 // import randClick from '../../assets/sounds/characterCustomizerSfx/randomize-button-click.wav'

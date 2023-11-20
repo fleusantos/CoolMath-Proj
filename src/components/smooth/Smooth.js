@@ -9,7 +9,7 @@ const Smooth = ({ src, panelWidth, panelHeight, mobileMod, setBgLoaded, ...props
   const firstLoaded = useRef(false)
   const [data, setData] = useState([])
   const [scale, setScale] = useState(2.5)
-
+  const [translate, setTranslate] = useState('')
 
   useEffect(() => {
     if (!src) return
@@ -18,8 +18,15 @@ const Smooth = ({ src, panelWidth, panelHeight, mobileMod, setBgLoaded, ...props
   useEffect(() => {
     if (panelHeight === null || panelWidth === null) return
     const rate = panelHeight / panelWidth
-    if (mobileMod) setScale(rate)
-    else setScale(1)
+    if (mobileMod) {
+      setScale(rate)
+      setTranslate('')
+    }
+    else {
+      setScale(1.33123)
+      // setScale(1.1)
+      // setTranslate('translate(36px, -45px)')
+    }
   }, [panelWidth, panelHeight])
   useEffect(() => {
     if (data.length > oldLength.current) {
@@ -81,14 +88,13 @@ const Smooth = ({ src, panelWidth, panelHeight, mobileMod, setBgLoaded, ...props
     })
   }
 
-
   return <div {...props} className={`smooth ${props.className}`}>
     {data.map(({ src, id, opacity }) =>
       <img ref={ref => elesRef.current[id] = ref}
         id={id}
         src={src}
-        style={{ position: 'absolute', left: '0', opacity, transform: `scale(${scale})` }}
-        key={generateRandomId()} />)}
+        style={{ position: 'absolute', left: '0', opacity, transform: `scale(${scale}) ${translate}` }}
+        key={`key-${id}`} />)}
   </div>
 }
 export default memo(Smooth)

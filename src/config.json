@@ -14,6 +14,16 @@
     "scale": 1,
     "translateX": -1,
     "translateY": 2,
+    "crop": {
+      "desktop": {
+        "x": 80,
+        "y": 25
+      },
+      "mobile": {
+        "x": 80,
+        "y": 25
+      }
+    },
     "hair": {
      "hairPoofy": {
       "scale": 1,
@@ -170,6 +180,16 @@
     "scale": 1,
     "translateX": 0.6,
     "translateY": 0.8,
+    "crop": {
+      "desktop": {
+        "x": 80,
+        "y": 25
+      },
+      "mobile": {
+        "x": 80,
+        "y": 25
+      }
+    },
     "hair": {
      "hairPoofy": {
       "scale": 1,
@@ -326,6 +346,16 @@
     "scale": 1,
     "translateX": 0,
     "translateY": 3,
+    "crop": {
+      "desktop": {
+        "x": 80,
+        "y": 25
+      },
+      "mobile": {
+        "x": 80,
+        "y": 25
+      }
+    },
     "hair": {
      "hairPoofy": {
       "scale": 1,
@@ -482,6 +512,16 @@
     "scale": 1,
     "translateX": 2.2,
     "translateY": -0.5,
+    "crop": {
+      "desktop": {
+        "x": 80,
+        "y": 25
+      },
+      "mobile": {
+        "x": 80,
+        "y": 25
+      }
+    },
     "hair": {
      "hairPoofy": {
       "scale": 1,
@@ -638,6 +678,16 @@
     "scale": 1,
     "translateX": -0.2,
     "translateY": 1,
+    "crop": {
+      "desktop": {
+        "x": 80,
+        "y": 25
+      },
+      "mobile": {
+        "x": 80,
+        "y": 25
+      }
+    },
     "hair": {
      "hairPoofy": {
       "scale": 1,
@@ -794,6 +844,16 @@
     "scale": 1,
     "translateX": 1,
     "translateY": 0,
+    "crop": {
+      "desktop": {
+        "x": 80,
+        "y": 25
+      },
+      "mobile": {
+        "x": 80,
+        "y": 25
+      }
+    },
     "hair": {
      "hairPoofy": {
       "scale": 1,
@@ -950,6 +1010,16 @@
     "scale": 1,
     "translateX": 1,
     "translateY": 0.2,
+    "crop": {
+      "desktop": {
+        "x": 80,
+        "y": 25
+      },
+      "mobile": {
+        "x": 80,
+        "y": 25
+      }
+    },
     "hair": {
      "hairPoofy": {
       "scale": 1,
@@ -1106,6 +1176,16 @@
     "scale": 1,
     "translateX": 1.8,
     "translateY": 2.5,
+    "crop": {
+      "desktop": {
+        "x": 80,
+        "y": 25
+      },
+      "mobile": {
+        "x": 80,
+        "y": 25
+      }
+    },
     "hair": {
      "hairPoofy": {
       "scale": 1,
