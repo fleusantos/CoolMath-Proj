@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "./static/css/main.c93712e3.css",
-    "main.js": "./static/js/main.b315ee76.js",
-    "static/js/845.06b2f083.chunk.js": "./static/js/845.06b2f083.chunk.js",
+    "main.css": "./static/css/main.e69e7717.css",
+    "main.js": "./static/js/main.df31d812.js",
+    "static/js/845.650f01f2.chunk.js": "./static/js/845.650f01f2.chunk.js",
     "static/js/787.28cb0dcd.chunk.js": "./static/js/787.28cb0dcd.chunk.js",
     "static/media/UIMobile_MainPage_FullBackground_Blonx.png": "./static/media/UIMobile_MainPage_FullBackground_Blonx.bfb184a0227e6800d5a7.png",
     "static/media/UIMobile_MainPage_FullBackground_CMGTG.png": "./static/media/UIMobile_MainPage_FullBackground_CMGTG.8c8adcedaf517ec619fd.png",
@@ -109,16 +109,16 @@
     "static/media/Top_Coat_Grayscale.png": "./static/media/Top_Coat_Grayscale.7a511f4df64e95be4b69.png",
     "static/media/Bottom_SweatPants_Highlight.png": "./static/media/Bottom_SweatPants_Highlight.7812f6f8cf459c5944ca.png",
     "static/media/Top_CollaredShirt_Grayscale.png": "./static/media/Top_CollaredShirt_Grayscale.97ff0e3e36da0e320f03.png",
-    "static/media/UIMobile_SavePage_NotebookPage_CopiedMessage.png": "./static/media/UIMobile_SavePage_NotebookPage_CopiedMessage.9c92d6f78c533fa594ff.png",
     "static/media/UIMobile_MainPage_NotebookPage_PageBackground.png": "./static/media/UIMobile_MainPage_NotebookPage_PageBackground.44458b69c1d70c2cd03e.png",
     "static/media/Top_KnittedSweater_Grayscale.png": "./static/media/Top_KnittedSweater_Grayscale.9eb196e6f13dca5e17b9.png",
     "static/media/Shoe_Skates_Highlight.png": "./static/media/Shoe_Skates_Highlight.3f3de94d9424c21980b3.png",
     "static/media/UIMobile_SavePage_Button_SetAvatarButton.png": "./static/media/UIMobile_SavePage_Button_SetAvatarButton.6a9f36c26907846bc621.png",
     "static/media/Head_Circular_Outline.png": "./static/media/Head_Circular_Outline.a4ad6b42d5d9f76c6ad8.png",
-    "static/media/UIDesktop_SavePage_NotebookPage_CopiedMessage.png": "./static/media/UIDesktop_SavePage_NotebookPage_CopiedMessage.42cc6263da2ed8a91eb0.png",
     "static/media/Top_KnittedSweater_Highlight.png": "./static/media/Top_KnittedSweater_Highlight.21250fb00dab2f67bcf3.png",
     "static/media/Bottom_PuffyShorts_Grayscale.png": "./static/media/Bottom_PuffyShorts_Grayscale.9bb34845bd1cf2711d7c.png",
     "static/media/FaceAccessory_SwirlGlasses_Outline.png": "./static/media/FaceAccessory_SwirlGlasses_Outline.e308946b4a4b71151b05.png",
+    "static/media/UIDesktop_SavePage_NotebookPage_Avatar_Updated.png": "./static/media/UIDesktop_SavePage_NotebookPage_Avatar_Updated.76de8001509054fb4c6d.png",
+    "static/media/UIMobile_SavePage_NotebookPage_Avatar_Updated.png": "./static/media/UIMobile_SavePage_NotebookPage_Avatar_Updated.76de8001509054fb4c6d.png",
     "static/media/HatAccessory_ChefHat_Outline.png": "./static/media/HatAccessory_ChefHat_Outline.10e6acc2aef253cda1f0.png",
     "static/media/UIDesktop_SavePage_DownloadButton.png": "./static/media/UIDesktop_SavePage_DownloadButton.9b76ee9b889511730e27.png",
     "static/media/Shoe_Heels_Outline.png": "./static/media/Shoe_Heels_Outline.bd766642459149a39f90.png",
@@ -126,6 +126,8 @@
     "static/media/HatAccessory_Pencil_Outline.png": "./static/media/HatAccessory_Pencil_Outline.3d1b1cabe599b827f828.png",
     "static/media/Bottom_LongPants_Highlight.png": "./static/media/Bottom_LongPants_Highlight.2c0a9c174aebfd069d7e.png",
     "static/media/Bottom_LongPants_Grayscale.png": "./static/media/Bottom_LongPants_Grayscale.3b75e06973455862a944.png",
+    "static/media/UIDesktop_SavePage_NotebookPage_CopiedMessage.png": "./static/media/UIDesktop_SavePage_NotebookPage_CopiedMessage.4f804bd2923a96617150.png",
+    "static/media/UIMobile_SavePage_NotebookPage_CopiedMessage.png": "./static/media/UIMobile_SavePage_NotebookPage_CopiedMessage.4f804bd2923a96617150.png",
     "static/media/UIMobile_SavePage_Button_DownloadButton.png": "./static/media/UIMobile_SavePage_Button_DownloadButton.abc934d147c07b1b9205.png",
     "static/media/UIMobile_SavePage_Button_ShareButton.png": "./static/media/UIMobile_SavePage_Button_ShareButton.09d6b91fc1869ab9bb53.png",
     "static/media/Shoe_Slippers_Outline.png": "./static/media/Shoe_Slippers_Outline.0b34590de4cc14669d27.png",
@@ -258,13 +260,13 @@
     "static/media/HatAccessory_Pencil_WhiteOverlay.svg": "./static/media/HatAccessory_Pencil_WhiteOverlay.b84c7a7eea4e03cb5b4c6599b0406d7b.svg",
     "static/media/UIMobile_ColorPalette_WhiteOverlay.svg": "./static/media/UIMobile_ColorPalette_WhiteOverlay.73c5488b5ad44dc1d196648ed651fbcb.svg",
     "index.html": "./index.html",
-    "main.c93712e3.css.map": "./static/css/main.c93712e3.css.map",
-    "main.b315ee76.js.map": "./static/js/main.b315ee76.js.map",
-    "845.06b2f083.chunk.js.map": "./static/js/845.06b2f083.chunk.js.map",
+    "main.e69e7717.css.map": "./static/css/main.e69e7717.css.map",
+    "main.df31d812.js.map": "./static/js/main.df31d812.js.map",
+    "845.650f01f2.chunk.js.map": "./static/js/845.650f01f2.chunk.js.map",
     "787.28cb0dcd.chunk.js.map": "./static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c93712e3.css",
-    "static/js/main.b315ee76.js"
+    "static/css/main.e69e7717.css",
+    "static/js/main.df31d812.js"
   ]
 }

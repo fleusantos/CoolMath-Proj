@@ -1,0 +1,58 @@
+.color-picker {
+  position: absolute;
+  width: 168px;
+  aspect-ratio: 2.3/1;
+  z-index: 200;
+
+  .bgr {
+    height: 100%;
+  }
+
+  .main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0px;
+    width: 100%;
+    height: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    cursor: default;
+  }
+
+  #close {
+    position: absolute;
+    z-index: 200;
+    top: -10px;
+    left: -10px;
+    width: 31px;
+    transition: filter 0.3s ease-in-out;
+  }
+
+  #close:hover {
+    filter: brightness(1.2);
+  }
+
+  #close:active {
+    filter: brightness(1);
+  }
+
+  @media screen and (max-width: 799px) {
+    max-width: 240px;
+    width: 51vw;
+
+    .main {
+      width: 100%;
+      padding-top: 9%;
+      padding-bottom: 9%;
+    }
+
+    #close {
+      transform: scale(1.5);
+    }
+  }
+}

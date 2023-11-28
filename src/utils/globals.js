@@ -982,7 +982,7 @@ export const GetCurrentObj = () => {
     typeof getCookie("cmg_uid") != "undefined"
     && getCookie("cmg_uid") != null
     && getCookie("cmg_uid") != "") {
-      
+
     userid = getCookie(cookieKey)
   }
 
@@ -1001,8 +1001,12 @@ export const GetCurrentObj = () => {
 
   console.log('3333')
 
-  const charactorBodyData = JSON.parse(json)
-  return charactorBodyData
+  try {
+    const charactorBodyData = JSON.parse(json)
+    return charactorBodyData
+  } catch (e) {
+    return RandomizeObj()
+  }
 }
 
 ////////// SOund Resouce ////////////

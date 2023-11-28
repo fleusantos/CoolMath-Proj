@@ -1,0 +1,14 @@
+.color-tile {
+ width: 20px;
+ aspect-ratio: 1/1;
+ transition: all 0.4s;
+ cursor: pointer;
+ @media screen and (max-width: 799px) {
+  width: 15%;
+ }
+}
+.color-tile:hover {
+ position: relative;
+ z-index: 600;
+ transform: scale(1.7);
+}

@@ -1,0 +1,194 @@
+.panel {
+ $pr: 17px;
+
+ * {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+ }
+
+ position: relative;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ max-width: 800px;
+ width: 100%;
+ height: 600px;
+ // overflow: hidden;
+ // background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+
+ .panel-bg {
+  position: absolute;
+
+  img {
+   width: 100%;
+   transform-origin: top;
+   transition: transform 0.5s;
+  }
+ }
+
+ .capture-region {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 20px;
+
+  .pan-container {
+   position: relative;
+   width: 100%;
+   display: flex;
+   flex-grow: 1;
+   // align-items: flex-end;
+   align-items: center;
+
+   // justify-content: center;
+   .pan {
+    position: absolute;
+    width: 130%;
+    height: 87%;
+    // left: 8%;
+    left: 0;
+    bottom: 1%;
+    transition: margin 0.5s;
+   }
+
+   .btn-rand {
+    position: absolute;
+    bottom: 5%;
+    left: 22px;
+    z-index: 50;
+   }
+  }
+
+  .tab-container {
+   // position: absolute;
+   // top: 0;
+   // right: 17px;
+   z-index: 80;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-right: $pr;
+  }
+ }
+
+ .btn {
+  cursor: pointer;
+  transition: filter 0.1s ease-in-out;
+ }
+
+ .btn:hover {
+  filter: brightness(1.1);
+ }
+
+ .btn:active {
+  filter: brightness(1);
+ }
+
+ .btn-save-share {
+  position: absolute;
+  z-index: 100;
+  right: $pr + 12px;
+  top: 15px;
+  width: 187px;
+  height: 88px;
+  transition: all 0.5s;
+
+  // @media screen and (max-width: 391px) {
+  //  top: 120px;
+  //  left: 50%;
+  //  transform: translateX(-50%);
+  // }
+ }
+
+ .dlg-save-share {
+  position: absolute;
+  z-index: 600;
+ }
+
+
+
+ .cover {
+  position: absolute;
+  z-index: 900;
+ }
+
+ @media screen and (max-width: 799px) {
+  max-width: auto;
+  // height: 100vh;
+  height: auto;
+
+  .panel-bg {
+   img {
+    // @media screen and (max-width: 799px) {
+    //  transform-origin: top;
+    //  transform: scale(1.1);
+    // }
+
+    // @media screen and (max-width: 600px) {
+    //  transform-origin: top;
+    //  transform: scale(1.4);
+    // }
+
+    // @media screen and (max-width: 425px) {
+    //  transform-origin: top;
+    //  transform: scale(1.9);
+    // }
+   }
+  }
+
+  .capture-region {
+   height: 100dvh;
+   flex-direction: column;
+   justify-content: space-between;
+
+   .pan-container {
+    position: relative;
+    justify-content: center;
+    align-items: flex-end;
+
+    .pan {
+     // position: relative;
+     height: 95vw;
+     // width: 65vw;
+     width: 100vw;
+     margin-top: 10%;
+     left: auto;
+
+     @media screen and (max-width: 536px) {
+      margin-top: 74px;
+     }
+
+     // @media screen and (max-width: 391px) {
+     //  margin-top: 200px;
+     // }
+    }
+
+    .btn-rand {
+     max-width: fit-content;
+     width: 14vw;
+     bottom: 5vw;
+     left: auto;
+     right: 5%;
+    }
+   }
+
+   .tab-container {
+    width: 100%;
+    padding-right: 0;
+    right: auto;
+    top: auto;
+    bottom: 0;
+   }
+  }
+
+  .btn-save-share {
+   width: 33vw;
+   height: auto;
+   max-width: 187px;
+   max-height: 88px;
+  }
+ }
+}
