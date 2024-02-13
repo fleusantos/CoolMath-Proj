@@ -1,5 +1,5 @@
 import './SaveShare.scss'
-import { memo, useEffect, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import { ReactSVG } from 'react-svg'
 
 import Lazy from '../lazy/Lazy'
@@ -37,10 +37,13 @@ const SaveShare = ({
   headCap,
   copy,
   conf,
+  bgID,
+  showWhile,
   download,
   mobileMod,
   headType,
   categoryObj,
+  categoryColor,
   showSaveShare,
   closeSaveShare,
   copyClipSuccess,
@@ -48,6 +51,7 @@ const SaveShare = ({
   playBtnClickSound,
   ...props }) => {
 
+  const dataUrlRef = useRef(null)
   const [opacity, setOpacity] = useState(0)
   const [testImg, setTestImg] = useState(null)
   const [head, setHead] = useState(null)
@@ -68,6 +72,10 @@ const SaveShare = ({
         setOpacity(properties.opacity)
       }
     })
+    svgToPng(cap.data, cap.originWidth, cap.originHeight)
+      .then(dataUrl => {
+        dataUrlRef.current = dataUrl
+      })
   }, [cap])
   useEffect(() => {
     setOpacity(0)
@@ -77,8 +85,33 @@ const SaveShare = ({
     closeSaveShare()
     playBtnClickSound()
   }
-  const hCopy = () => {
-    copy()
+  async function dataURLToBlob(dataURL) {
+    var parts = dataURL.split(';base64,');
+    var contentType = parts[0].split(':')[1];
+    var raw = window.atob(parts[1]);
+    var rawLength = raw.length;
+    var uInt8Array = new Uint8Array(rawLength);
+    for (var i = 0; i < rawLength; ++i) {
+      uInt8Array[i] = raw.charCodeAt(i);
+    }
+    return new Blob([uInt8Array], { type: contentType });
+  }
+
+  const hCopy = async () => {
+
+    navigator.clipboard.write([
+      new ClipboardItem({
+        'image/png': await dataURLToBlob(dataUrlRef.current)
+      })
+    ]).then(() => {
+      showWhile()
+    }).catch(error => {
+      console.error('Failed to copy image to clipboard:', error);
+      showWhile()
+    }).catch(error => {
+      console.error('2 Failed to copy image to clipboard:', error);
+    });
+
     playBtnClickSound()
   }
   const hDownload = () => {
@@ -96,18 +129,15 @@ const SaveShare = ({
   }
   const hUpload = () => {
     // cropImageFromDataURL(cap.data, 80, 25, 240, 240, (faceOnlyImageDataUrl) => {
-      const {x, y} = conf.position.head[headType].crop.desktop
+    const { x, y } = conf.position.head[headType].crop.desktop
     cropImageFromDataURL(cap.data, x, y, 240, 240, (faceOnlyImageDataUrl) => {
       const ifLoggedin = getCookie("cmg_l")
       // if (ifLoggedin != "" && ifLoggedin != "undefined") {
       console.log('categoryObj', categoryObj)
       svgToPng(cap.data, cap.originWidth, cap.originHeight)
         .then(fullBodyDataUrl => {
-          cmgSaveAvatar(faceOnlyImageDataUrl, fullBodyDataUrl, categoryObj, signal_Finished)
+          cmgSaveAvatar(faceOnlyImageDataUrl, fullBodyDataUrl, categoryObj, categoryColor, bgID, signal_Finished)
         })
-      // } else {
-
-      // }
     })
     setLoading(true)
   }
@@ -146,9 +176,9 @@ const SaveShare = ({
 
     <Lazy className='bg' src={!mobileMod ? bg : bgMob} />
 
-    <img className={`msg ${ copyClipSuccess ? 'show' : '' }`}
+    <img className={`msg ${copyClipSuccess ? 'show' : ''}`}
       src={!mobileMod ? successMsg : successMsgMob} />
-    <img className={`msg ${ uploadSuccess ? 'show' : '' }`}
+    <img className={`msg ${uploadSuccess ? 'show' : ''}`}
       src={!mobileMod ? successUpload : successUploadMob} />
     <img className='btn close' src={close} onClick={hClose} />
 

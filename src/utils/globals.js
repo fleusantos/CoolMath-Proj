@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 /////// resource import ///////
 import grayb from '../assets/images/Character/Body/Body_Grayscale.png'
 import outlineb from '../assets/images/Character/Body/Body_Outline.png'
@@ -974,45 +976,117 @@ export function GetRandomCategory(categories) {
   return categories[randomIndex];
 }
 
-export const GetCurrentObj = () => {
-  let userid = null
-  const cookieKey = "cmg_uid"
-
+export const GetCurrentObj = (callback) => {
+  let userid = null;
+  const cookieKey = "cmg_uid";
+  var unauthorizedid = "";
   if (
     typeof getCookie("cmg_uid") != "undefined"
     && getCookie("cmg_uid") != null
     && getCookie("cmg_uid") != "") {
-
     userid = getCookie(cookieKey)
   }
-
-  console.log('1111')
-
+  if (localStorage.getItem("unauthorized") != null) {
+   // console.log(localStorage.getItem("unauthorized"));
+    unauthorizedid = localStorage.getItem("unauthorized");
+  }
   if (!userid) {
-    // erase local storage
-    localStorage.setItem('charactor_body_data', '')
-    return RandomizeObj()
+    callback(null)
+    return
+  }
+  if(unauthorizedid != ""){
+    var fd = JSON.stringify({
+      "unauthorizedid": unauthorizedid,
+      "userid": userid
+    });
+    $.ajax({
+      url: `https://char-tool-img.coolmathgames.com/changeuserid`,
+      type: 'post',
+      data: fd,
+      contentType: "application/json",
+      processData: false,
+      headers: {
+        "x-access-token": localStorage.getItem("authtoken")
+      },
+      success: function (response) {
+        getuserid(userid);
+        localStorage.removeItem("unauthorizedid");
+      }, error: function (jqXHR, exception) {
+        callback(null)
+      }
+    });
+  }else{
+    getuserid(userid)
   }
 
-  console.log('2222')
-
-  const json = localStorage.getItem('charactor_body_data')
-  if (!json) return RandomizeObj()
-
-  console.log('3333')
-
-  try {
-    const charactorBodyData = JSON.parse(json)
-    return charactorBodyData
-  } catch (e) {
-    return RandomizeObj()
+  function getuserid(userid){
+    $.ajax({
+      url: `https://char-tool-img.coolmathgames.com/charactor-body-assets/${userid}`,
+      type: 'get',
+      contentType: "application/json",
+      processData: false,
+      headers: {
+        "x-access-token": localStorage.getItem("authtoken")
+      },
+      success: function (response) {
+        const characterBodyData =  response.characterBody[0]
+        const characterBodyColorData = response.characterBodyColor[0]
+        const backgroundID = response.backgroundName[0]
+        console.log('response backgroundid', response.backgroundName)
+        console.log('current userid', userid)
+        console.log('characterBodyData, characterBodyColor', characterBodyData, characterBodyColorData)
+        callback(characterBodyData, characterBodyColorData, backgroundID)
+      }, error: function (jqXHR, exception) {
+        callback(null)
+      }
+    });
   }
 }
 
-////////// SOund Resouce ////////////
-// import randClick from '../../assets/sounds/characterCustomizerSfx/randomize-button-click.wav'
-// import saveShareClick from '../../assets/sounds/characterCustomizerSfx/share-and-save-click.wav'
-// import changeClothClick from '../../assets/sounds/characterCustomizerSfx/change-clothes.wav'
-// import changeColorClick from '../../assets/sounds/characterCustomizerSfx/changing-color-in-color-palet.wav'
-// export {randClick, saveShareClick, }
-////////// SOund Resouce ////////////
+// export const GetCurrentObj = (callback) => {
+//   let userid = null
+//   const cookieKey = "cmg_uid"
+
+//   if (
+//     typeof getCookie("cmg_uid") != "undefined"
+//     && getCookie("cmg_uid") != null
+//     && getCookie("cmg_uid") != "") {
+
+//     userid = getCookie(cookieKey)
+//   }
+
+//   console.log('1111')
+
+//   if (!userid) {
+//     callback(null)
+//     return
+//   }
+
+//   // userid = 4436413
+
+//   // console.log('2222')
+//   // console.log('userid', userid)
+
+//   $.ajax({
+//     url: `https://char-tool-img.coolmathgames.com/charactor-body-assets/${userid}`,
+//     type: 'get',
+//     contentType: "application/json",
+//     processData: false,
+//     headers: {
+//       "x-access-token": localStorage.getItem("authtoken")
+//     },
+//     success: function (response) {
+//       const characterBodyData =  response.characterBody[0]
+//       const characterBodyColorData = response.characterBodyColor[0]
+//       const backgroundID = response.backgroundName[0]
+
+//       console.log('response backgroundid', response.backgroundName)
+//       console.log('current userid', userid)
+//       console.log('characterBodyData, characterBodyColor', characterBodyData, characterBodyColorData)
+
+//       callback(characterBodyData, characterBodyColorData, backgroundID)
+//     }, error: function (jqXHR, exception) {
+//       callback(null)
+//     }
+//   });
+// }

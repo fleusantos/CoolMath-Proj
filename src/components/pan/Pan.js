@@ -19,9 +19,27 @@ const Base = lazy(() => import('../base/Base'))
 let rendered = false
 let gMob = false
 let sameAnim = {}
+const noFacialAssessory = 'none'
 
-const Pan = ({ categoryColor, categoryObj, mobileMod, config, panelWidth, panelHeight }) => {
+const Pan = ({ 
+  categoryColor, 
+  categoryObj, 
+  mobileMod, 
+  config, 
+  panelWidth, 
+  panelHeight,
+  setCharacterImgLoaded,
+}) => {
   const panRef = useRef(null)
+  const loadedCat = useRef({
+    head: false,
+    hair: false,
+    fa: false,
+    fx: false,
+    top: false,
+    bottom: false,
+    sh: false,
+  })
   const [width, setWidth] = useState(0)
   const [style, setStyle] = useState({})
   const [shadowStyle, setShadowStyle] = useState({})
@@ -57,6 +75,11 @@ const Pan = ({ categoryColor, categoryObj, mobileMod, config, panelWidth, panelH
       setShadowStyle(prev => ({ ...prev, width: '30%', left: '35%', bottom: '6%' }))
     }
   }, [panelWidth, panelHeight])
+  useEffect(()=>{
+    if (categoryObj.fa == noFacialAssessory) loadedCat.current.fa = true
+  }, [categoryObj])
+
+
   const hResize = () => {
     let pan = document.getElementById('pan')
     if (gMob) {
@@ -71,7 +94,15 @@ const Pan = ({ categoryColor, categoryObj, mobileMod, config, panelWidth, panelH
   // const bottomLoaded = () => {
   //   playClothingSound()
   // }
-  const elementLoaded = () => {
+  const checkIfAllCatLoaded = () => {
+    const { head, hair, fa, fx, top, bottom, sh } = loadedCat.current
+    
+    return head && hair && fa && fx && top && bottom && sh
+  }
+  const elementLoaded = (category) => () => {
+    loadedCat.current[category] = true
+    if (checkIfAllCatLoaded()) setCharacterImgLoaded(true)
+    console.log('checkIfAllCatLoaded()', checkIfAllCatLoaded())
     playClothingSound()
   }
 
@@ -81,7 +112,7 @@ const Pan = ({ categoryColor, categoryObj, mobileMod, config, panelWidth, panelH
       style={shadowStyle} />
 
     {/* ----- Face Acessary ------ */}
-    {categoryObj.fa != 'none' &&
+    {categoryObj.fa != noFacialAssessory &&
       <Base
         color={categoryColor.fa}
         width={width}
@@ -101,7 +132,7 @@ const Pan = ({ categoryColor, categoryObj, mobileMod, config, panelWidth, panelH
         }}
         object={fa[categoryObj.fa]}
         baseZindex={29}
-        setLoaded={elementLoaded}
+        setLoaded={elementLoaded('fa')}
       />}
 
 
@@ -124,7 +155,7 @@ const Pan = ({ categoryColor, categoryObj, mobileMod, config, panelWidth, panelH
       }}
       object={hairs[categoryObj.hair]}
       baseZindex={25}
-      setLoaded={elementLoaded}
+      setLoaded={elementLoaded('hair')}
     />
 
 
@@ -146,7 +177,7 @@ const Pan = ({ categoryColor, categoryObj, mobileMod, config, panelWidth, panelH
       }}
       object={fx[categoryObj.fx]}
       baseZindex={21}
-      setLoaded={elementLoaded}
+      setLoaded={elementLoaded('fx')}
     />
 
 
@@ -168,7 +199,7 @@ const Pan = ({ categoryColor, categoryObj, mobileMod, config, panelWidth, panelH
       }}
       object={heads[categoryObj.head]}
       baseZindex={17}
-      setLoaded={elementLoaded}
+      setLoaded={elementLoaded('head')}
     />
 
 
@@ -185,7 +216,7 @@ const Pan = ({ categoryColor, categoryObj, mobileMod, config, panelWidth, panelH
         opacity: 1,
         scale: 1,
       }}
-      setLoaded={elementLoaded}
+      setLoaded={elementLoaded('body')}
     />
 
 
@@ -203,7 +234,7 @@ const Pan = ({ categoryColor, categoryObj, mobileMod, config, panelWidth, panelH
         scale: 1,
         translateY: 0,
       }}
-      setLoaded={elementLoaded}
+      setLoaded={elementLoaded('sh')}
     />
 
 
@@ -220,7 +251,7 @@ const Pan = ({ categoryColor, categoryObj, mobileMod, config, panelWidth, panelH
         scale: 1,
         translateY: 0,
       }}
-      setLoaded={elementLoaded}
+      setLoaded={elementLoaded('bottom')}
     />
 
 
@@ -237,7 +268,7 @@ const Pan = ({ categoryColor, categoryObj, mobileMod, config, panelWidth, panelH
         scale: 1,
         translateY: 0,
       }}
-      setLoaded={elementLoaded}
+      setLoaded={elementLoaded('top')}
     />
   </div>
 }

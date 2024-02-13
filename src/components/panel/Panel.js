@@ -36,22 +36,13 @@ import btnClickSound from '../../assets/sounds/characterCustomizerSfx/general-bu
 import startClickSound from '../../assets/sounds/characterCustomizerSfx/start-button-press-page-turn.wav'
 ////////// Sound Resouce ////////////
 
-// test code
-// localStorage.setItem('charactor_body_data', JSON.stringify({
-//   bottom: "puffyShorts",
-//   fa: "htaChef",
-//   fx: "fxPlayful",
-//   hair: "hairLong",
-//   head: "circular",
-//   sh: "shBoot",
-//   top: "topPlain",
-// }))
-
 const isMobileMode = false
 
 const Panel = () => {
   const panelRef = useRef(null)
   const capRgRef = useRef(null)
+  const characterBodyDataRef = useRef(null)
+  const characterBodyColorRef = useRef(null)
   const [categoryColor, setCategoryColor] = useState({
     hair: 'white',
     fa: 'white',
@@ -65,9 +56,11 @@ const Panel = () => {
     tabs: false,
     cover: false,
     listbg: false,
+    character: false,
   })
   const [allLoaded, setAllLoaded] = useState(false)
   const [bg, setBg] = useState(null)
+  const [bgID, setBgID] = useState(null)
   const [conf, setConf] = useState(config)
 
   const showCoverRef = useRef(true)
@@ -80,8 +73,9 @@ const Panel = () => {
   const [showSaveShare, setShowSaveShare] = useState(false)
   const [copyClipSuccess, setCopyClipSuccess] = useState(false)
   const [cap, setCap] = useState({ data: null, mobileMod: false })
+  const [characterImgLoaded, setCharacterImgLoaded] = useState(false)
   // const [categoryObj, setCategoryObj] = useState(config.defaultObj)
-  const [categoryObj, setCategoryObj] = useState(GetCurrentObj())
+  const [categoryObj, setCategoryObj] = useState(RandomizeObj())
   const [panelWH, setPanelWH] = useState({ width: 1, height: 1 })
   const [bgLoaded, setBgLoaded] = useState(false)
 
@@ -91,6 +85,7 @@ const Panel = () => {
   const [playStartClickSound] = useSound(startClickSound)
 
   useEffect(() => {
+    // panel resize
     if (panelRef.current) {
       hSizeChange();
     }
@@ -98,20 +93,52 @@ const Panel = () => {
     if (panelRef.current) {
       resizeObserver.observe(panelRef.current);
     }
+
+    // get saved character model info
+    GetCurrentObj((characterBodyData, characterBodyColor, backgroundID) => {
+      if (!characterBodyData) {
+        setCharacterLoaded()
+      } else {
+        console.log('characterbodydata', characterBodyData)
+        characterBodyDataRef.current = characterBodyData
+        characterBodyColorRef.current = characterBodyColor
+        setCategoryObj(characterBodyData)
+        setBgID(backgroundID)
+      }
+    })
+
     return () => {
       resizeObserver.disconnect();
     };
   }, [])
   useEffect(() => {
-    const defaultColors = { ...categoryColor }
-    defaultColors.hair = conf.color.hair.options[conf.color.hair[categoryObj.hair].selected]
-    defaultColors.fa = conf.color.fa.options[conf.color.fa[categoryObj.fa]?.selected] || 'white'
-    defaultColors.head = conf.color.head.options[conf.color.head[categoryObj.head].selected]
-    defaultColors.sh = conf.color.sh.options[conf.color.sh[categoryObj.sh].selected]
-    defaultColors.bottom = conf.color.bottom.options[conf.color.bottom[categoryObj.bottom].selected]
-    defaultColors.top = conf.color.top.options[conf.color.top[categoryObj.top].selected]
-    setCategoryColor(prev => ({ ...defaultColors }))
+    console.log('characterBodyColorRef.current', characterBodyColorRef.current)
+
+    if (characterBodyColorRef.current) {
+      const cloneVal = JSON.parse(JSON.stringify(characterBodyColorRef.current))
+      console.log('cloneVal', cloneVal)
+      setCategoryColor(cloneVal)
+      setCharacterLoaded()
+      characterBodyColorRef.current = null
+      console.log('11111111111111111')
+    } else {
+      console.log('2222222222222222222')
+
+      const defaultColors = { ...categoryColor }
+      defaultColors.hair = conf.color.hair.options[conf.color.hair[categoryObj.hair].selected]
+      defaultColors.fa = conf.color.fa.options[conf.color.fa[categoryObj.fa]?.selected] || 'white'
+      defaultColors.head = conf.color.head.options[conf.color.head[categoryObj.head].selected]
+      defaultColors.sh = conf.color.sh.options[conf.color.sh[categoryObj.sh].selected]
+      defaultColors.bottom = conf.color.bottom.options[conf.color.bottom[categoryObj.bottom].selected]
+      defaultColors.top = conf.color.top.options[conf.color.top[categoryObj.top].selected]
+      setCategoryColor(prev => ({ ...defaultColors }))
+    }
+
   }, [JSON.stringify(categoryObj)])
+
+  useEffect(() => {
+    console.log('-- bgid --', bgID)
+  }, [bgID])
 
   const getCurPanelWidth = () => panelRef?.current.clientWidth
   const getCurPanelHeight = () => panelRef?.current.clientHeight
@@ -123,6 +150,7 @@ const Panel = () => {
         tabs: false,
         cover: !showCoverRef.current || false,
         listbg: false,
+        character: false,
       }
       setAllLoaded(false)
     }
@@ -253,25 +281,25 @@ const Panel = () => {
     }, 3000);
   }
   const copy = () => {
+    
     svgToPng(cap.data, cap.originWidth, cap.originHeight)
       .then(dataUrl => {
-
-        var blob = dataURLToBlob(dataUrl);
-
         if (navigator?.clipboard) {
-          navigator.clipboard.write([
-            new ClipboardItem({
-              'image/png': blob,
-            })
-          ]).then(() => {
-            showWhile()
-          }).catch(error => {
-            console.error('Failed to copy image to clipboard:', error);
-            copyDataUrlToClipboard(dataUrl)
-            showWhile()
-          }).catch(error => {
-            console.error('2 Failed to copy image to clipboard:', error);
-          });
+          console.log('navigator.clipboard is existing')
+        
+          // navigator.clipboard.write([
+          //   new ClipboardItem({
+          //     'image/png': Promise.resolve(dataURLToBlob(dataUrl)),
+          //   })
+          // ]).then(() => {
+          //   showWhile()
+          // }).catch(error => {
+          //   console.error('Failed to copy image to clipboard:', error);
+          //   copyDataUrlToClipboard(dataUrl)
+          //   showWhile()
+          // }).catch(error => {
+          //   console.error('2 Failed to copy image to clipboard:', error);
+          // });
         } else {
           alert('else')
           copyDataUrlToClipboard(dataUrl)
@@ -313,9 +341,9 @@ const Panel = () => {
 
   ///////////// Load Relatives ///////////
   const checkAllLoaded = () => {
-    const { cover, tabs, listbg } = loadResult.current
-    console.log('{ cover, tabs, listbg }', { cover, tabs, listbg })
-    return cover && tabs && listbg
+    const { cover, tabs, listbg, character } = loadResult.current
+    console.log('{ cover, tabs, listbg, character }', { cover, tabs, listbg, character })
+    return cover && tabs && listbg && character
   }
   const setTabsLoaded = () => {
     loadResult.current.tabs = true
@@ -335,6 +363,15 @@ const Panel = () => {
       setAllLoaded(checkAllLoaded())
     }, 1000);
   }
+  const setCharacterLoaded = () => {
+    loadResult.current.character = true
+    setTimeout(() => {
+      setAllLoaded(checkAllLoaded())
+    }, 1000);
+  }
+
+
+
   return <>
     {/* -------------- Panel --------------- */}
     <div className='panel' ref={panelRef}>
@@ -364,6 +401,7 @@ const Panel = () => {
               mobileMod={mobileMod}
               panelWidth={panelWH.width}
               panelHeight={panelWH.height}
+              setCharacterImgLoaded={setCharacterImgLoaded}
               config={conf}
             />}
           {!showCover &&
@@ -389,6 +427,8 @@ const Panel = () => {
       <BgSetter
         style={showCover ? { display: 'none' } : {}}
         setBg={setBg}
+        bgID={bgID}
+        setBgID={setBgID}
         mobileMod={mobileMod}
         playBtnClickSound={playBtnClickSound}
       />
@@ -401,9 +441,12 @@ const Panel = () => {
         closeSaveShare={closeSaveShare}
         copy={copy}
         conf={conf}
+        bgID={bgID}
+        showWhile={showWhile}
         headType={categoryObj.head}
         download={download}
         categoryObj={categoryObj}
+        categoryColor={categoryColor}
         mobileMod={mobileMod}
         copyClipSuccess={copyClipSuccess}
         setCopyClipSuccess={setCopyClipSuccess}

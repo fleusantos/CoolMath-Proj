@@ -47,21 +47,27 @@ const bgs = (mobileMod) => mobileMod ?
   [bgLg1, bgLg2, bgLg3, bgLg4, bgLg5, bgLg6, bgLg7, bgLg8, bgLg9, bgLg10]
 let curBgIndex = 2
 
-const BgSetter = ({ setBg, mobileMod, playBtnClickSound, ...props }) => {
+const BgSetter = ({ setBg, bgID, setBgID, mobileMod, playBtnClickSound, ...props }) => {
   useEffect(() => {
     setBg(bgs(mobileMod)[curBgIndex])
   }, [])
+  useEffect(() => {
+    const curBgID = ( bgID == null ? curBgIndex : bgID )
+    setBg(bgs(mobileMod)[curBgID])
+  }, [bgID])
   useEffect(() => {
     setBg(bgs(mobileMod)[curBgIndex])
   }, [mobileMod])
   const hPrev = () => {
     curBgIndex = curBgIndex - 1 < 0 ? bgs(mobileMod).length - 1 : curBgIndex - 1
     setBg(bgs(mobileMod)[curBgIndex])
+    setBgID(curBgIndex)
     playBtnClickSound()
   }
   const hNext = () => {
     curBgIndex = curBgIndex + 1 == bgs(mobileMod).length ? 0 : curBgIndex + 1
     setBg(bgs(mobileMod)[curBgIndex])
+    setBgID(curBgIndex)
     anime({
       targets: '#panel-bg',
       opacity: ['1', '0']
